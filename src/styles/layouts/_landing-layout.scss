@@ -1,0 +1,29 @@
+.landing-layout {
+  header.header-landing {
+    a.active {
+      @apply bg-teal-400 dark:bg-teal-200 text-black-700 rounded-sm;
+    }
+
+    ul > li:first-child {
+      img {
+        transform: rotate(-30deg);
+      }
+
+      &:hover {
+        img {
+          transform: rotate(0);
+        }
+      }
+    }
+  }
+
+  main {
+    section.section-wrapper {
+      @apply max-w-prose mx-auto sm:px-4;
+
+      h3.section-title {
+        @apply mt-3 mb-4 text-xl font-semibold underline underline-offset-8 decoration-4 dark:decoration-[#525252];
+      }
+    }
+  }
+}
