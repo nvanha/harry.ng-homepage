@@ -21,8 +21,12 @@ const SectionAction = () => {
   const { resData: resDataViewed, isLoading: isLoadingViewed } =
     hooks.useGetContentRealTime("View", isReLoad);
 
-  const currentLikeAction = localStorage.getItem("currentLikeAction");
-  const currentView = localStorage.getItem("currentView");
+  const currentLikeAction = localStorage.getItem(
+    `currentLikeAction${import.meta.env.VITE_CURRENT_ENV}`
+  );
+  const currentView = localStorage.getItem(
+    `currentView${import.meta.env.VITE_CURRENT_ENV}`
+  );
 
   const handleLike = async () => {
     await API.graphql({
@@ -38,9 +42,15 @@ const SectionAction = () => {
       },
     });
     if (currentLikeAction === "liked") {
-      localStorage.setItem("currentLikeAction", "unlike");
+      localStorage.setItem(
+        `currentLikeAction${import.meta.env.VITE_CURRENT_ENV}`,
+        "unlike"
+      );
     } else {
-      localStorage.setItem("currentLikeAction", "liked");
+      localStorage.setItem(
+        `currentLikeAction${import.meta.env.VITE_CURRENT_ENV}`,
+        "liked"
+      );
     }
   };
 
@@ -54,7 +64,10 @@ const SectionAction = () => {
         },
       },
     });
-    localStorage.setItem("currentView", "viewed");
+    localStorage.setItem(
+      `currentView${import.meta.env.VITE_CURRENT_ENV}`,
+      "viewed"
+    );
     setIsReLoad(true);
   };
 
