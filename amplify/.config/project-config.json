@@ -2,7 +2,7 @@
   "providers": [
     "awscloudformation"
   ],
-  "projectName": "harryng",
+  "projectName": "harrynghomepage",
   "version": "3.1",
   "frontend": "javascript",
   "javascript": {
