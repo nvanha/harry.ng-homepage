@@ -4,26 +4,30 @@
 
 export type CreateLikesInput = {
   id?: string | null,
-  liked: number,
+  liked: string,
 };
 
 export type ModelLikesConditionInput = {
-  liked?: ModelIntInput | null,
+  liked?: ModelStringInput | null,
   and?: Array< ModelLikesConditionInput | null > | null,
   or?: Array< ModelLikesConditionInput | null > | null,
   not?: ModelLikesConditionInput | null,
 };
 
-export type ModelIntInput = {
-  ne?: number | null,
-  eq?: number | null,
-  le?: number | null,
-  lt?: number | null,
-  ge?: number | null,
-  gt?: number | null,
-  between?: Array< number | null > | null,
+export type ModelStringInput = {
+  ne?: string | null,
+  eq?: string | null,
+  le?: string | null,
+  lt?: string | null,
+  ge?: string | null,
+  gt?: string | null,
+  contains?: string | null,
+  notContains?: string | null,
+  between?: Array< string | null > | null,
+  beginsWith?: string | null,
   attributeExists?: boolean | null,
   attributeType?: ModelAttributeTypes | null,
+  size?: ModelSizeInput | null,
 };
 
 export enum ModelAttributeTypes {
@@ -40,17 +44,27 @@ export enum ModelAttributeTypes {
 }
 
 
+export type ModelSizeInput = {
+  ne?: number | null,
+  eq?: number | null,
+  le?: number | null,
+  lt?: number | null,
+  ge?: number | null,
+  gt?: number | null,
+  between?: Array< number | null > | null,
+};
+
 export type Likes = {
   __typename: "Likes",
   id: string,
-  liked: number,
+  liked: string,
   createdAt: string,
   updatedAt: string,
 };
 
 export type UpdateLikesInput = {
   id: string,
-  liked?: number | null,
+  liked?: string | null,
 };
 
 export type DeleteLikesInput = {
@@ -59,11 +73,11 @@ export type DeleteLikesInput = {
 
 export type CreateViewsInput = {
   id?: string | null,
-  viewed: number,
+  viewed: string,
 };
 
 export type ModelViewsConditionInput = {
-  viewed?: ModelIntInput | null,
+  viewed?: ModelStringInput | null,
   and?: Array< ModelViewsConditionInput | null > | null,
   or?: Array< ModelViewsConditionInput | null > | null,
   not?: ModelViewsConditionInput | null,
@@ -72,14 +86,14 @@ export type ModelViewsConditionInput = {
 export type Views = {
   __typename: "Views",
   id: string,
-  viewed: number,
+  viewed: string,
   createdAt: string,
   updatedAt: string,
 };
 
 export type UpdateViewsInput = {
   id: string,
-  viewed?: number | null,
+  viewed?: string | null,
 };
 
 export type DeleteViewsInput = {
@@ -88,7 +102,7 @@ export type DeleteViewsInput = {
 
 export type ModelLikesFilterInput = {
   id?: ModelIDInput | null,
-  liked?: ModelIntInput | null,
+  liked?: ModelStringInput | null,
   and?: Array< ModelLikesFilterInput | null > | null,
   or?: Array< ModelLikesFilterInput | null > | null,
   not?: ModelLikesFilterInput | null,
@@ -110,16 +124,6 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
-export type ModelSizeInput = {
-  ne?: number | null,
-  eq?: number | null,
-  le?: number | null,
-  lt?: number | null,
-  ge?: number | null,
-  gt?: number | null,
-  between?: Array< number | null > | null,
-};
-
 export type ModelLikesConnection = {
   __typename: "ModelLikesConnection",
   items:  Array<Likes | null >,
@@ -128,7 +132,7 @@ export type ModelLikesConnection = {
 
 export type ModelViewsFilterInput = {
   id?: ModelIDInput | null,
-  viewed?: ModelIntInput | null,
+  viewed?: ModelStringInput | null,
   and?: Array< ModelViewsFilterInput | null > | null,
   or?: Array< ModelViewsFilterInput | null > | null,
   not?: ModelViewsFilterInput | null,
@@ -142,7 +146,7 @@ export type ModelViewsConnection = {
 
 export type ModelSubscriptionLikesFilterInput = {
   id?: ModelSubscriptionIDInput | null,
-  liked?: ModelSubscriptionIntInput | null,
+  liked?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionLikesFilterInput | null > | null,
   or?: Array< ModelSubscriptionLikesFilterInput | null > | null,
 };
@@ -162,21 +166,24 @@ export type ModelSubscriptionIDInput = {
   notIn?: Array< string | null > | null,
 };
 
-export type ModelSubscriptionIntInput = {
-  ne?: number | null,
-  eq?: number | null,
-  le?: number | null,
-  lt?: number | null,
-  ge?: number | null,
-  gt?: number | null,
-  between?: Array< number | null > | null,
-  in?: Array< number | null > | null,
-  notIn?: Array< number | null > | null,
+export type ModelSubscriptionStringInput = {
+  ne?: string | null,
+  eq?: string | null,
+  le?: string | null,
+  lt?: string | null,
+  ge?: string | null,
+  gt?: string | null,
+  contains?: string | null,
+  notContains?: string | null,
+  between?: Array< string | null > | null,
+  beginsWith?: string | null,
+  in?: Array< string | null > | null,
+  notIn?: Array< string | null > | null,
 };
 
 export type ModelSubscriptionViewsFilterInput = {
   id?: ModelSubscriptionIDInput | null,
-  viewed?: ModelSubscriptionIntInput | null,
+  viewed?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionViewsFilterInput | null > | null,
   or?: Array< ModelSubscriptionViewsFilterInput | null > | null,
 };
@@ -190,7 +197,7 @@ export type CreateLikesMutation = {
   createLikes?:  {
     __typename: "Likes",
     id: string,
-    liked: number,
+    liked: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -205,7 +212,7 @@ export type UpdateLikesMutation = {
   updateLikes?:  {
     __typename: "Likes",
     id: string,
-    liked: number,
+    liked: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -220,7 +227,7 @@ export type DeleteLikesMutation = {
   deleteLikes?:  {
     __typename: "Likes",
     id: string,
-    liked: number,
+    liked: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -235,7 +242,7 @@ export type CreateViewsMutation = {
   createViews?:  {
     __typename: "Views",
     id: string,
-    viewed: number,
+    viewed: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -250,7 +257,7 @@ export type UpdateViewsMutation = {
   updateViews?:  {
     __typename: "Views",
     id: string,
-    viewed: number,
+    viewed: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -265,7 +272,7 @@ export type DeleteViewsMutation = {
   deleteViews?:  {
     __typename: "Views",
     id: string,
-    viewed: number,
+    viewed: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -279,7 +286,7 @@ export type GetLikesQuery = {
   getLikes?:  {
     __typename: "Likes",
     id: string,
-    liked: number,
+    liked: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -297,7 +304,7 @@ export type ListLikesQuery = {
     items:  Array< {
       __typename: "Likes",
       id: string,
-      liked: number,
+      liked: string,
       createdAt: string,
       updatedAt: string,
     } | null >,
@@ -313,7 +320,7 @@ export type GetViewsQuery = {
   getViews?:  {
     __typename: "Views",
     id: string,
-    viewed: number,
+    viewed: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -331,7 +338,7 @@ export type ListViewsQuery = {
     items:  Array< {
       __typename: "Views",
       id: string,
-      viewed: number,
+      viewed: string,
       createdAt: string,
       updatedAt: string,
     } | null >,
@@ -343,7 +350,7 @@ export type NewOnUpdateLikesSubscription = {
   newOnUpdateLikes?:  {
     __typename: "Likes",
     id: string,
-    liked: number,
+    liked: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -353,7 +360,7 @@ export type NewOnUpdateViewsSubscription = {
   newOnUpdateViews?:  {
     __typename: "Views",
     id: string,
-    viewed: number,
+    viewed: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -367,7 +374,7 @@ export type OnCreateLikesSubscription = {
   onCreateLikes?:  {
     __typename: "Likes",
     id: string,
-    liked: number,
+    liked: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -381,7 +388,7 @@ export type OnUpdateLikesSubscription = {
   onUpdateLikes?:  {
     __typename: "Likes",
     id: string,
-    liked: number,
+    liked: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -395,7 +402,7 @@ export type OnDeleteLikesSubscription = {
   onDeleteLikes?:  {
     __typename: "Likes",
     id: string,
-    liked: number,
+    liked: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -409,7 +416,7 @@ export type OnCreateViewsSubscription = {
   onCreateViews?:  {
     __typename: "Views",
     id: string,
-    viewed: number,
+    viewed: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -423,7 +430,7 @@ export type OnUpdateViewsSubscription = {
   onUpdateViews?:  {
     __typename: "Views",
     id: string,
-    viewed: number,
+    viewed: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -437,7 +444,7 @@ export type OnDeleteViewsSubscription = {
   onDeleteViews?:  {
     __typename: "Views",
     id: string,
-    viewed: number,
+    viewed: string,
     createdAt: string,
     updatedAt: string,
   } | null,

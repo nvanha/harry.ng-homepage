@@ -1,5 +1,3 @@
-import React from "react";
-
 import VoxelDog from "./VoxelDog";
 
 const ThreeItem = () => {

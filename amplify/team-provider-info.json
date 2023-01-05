@@ -1,33 +1,15 @@
 {
-  "prod": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-harrynghomepage-prod-122256-authRole",
-      "UnauthRoleArn": "arn:aws:iam::819809268659:role/amplify-harrynghomepage-prod-122256-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::819809268659:role/amplify-harrynghomepage-prod-122256-authRole",
-      "Region": "ap-southeast-2",
-      "DeploymentBucketName": "amplify-harrynghomepage-prod-122256-deployment",
-      "UnauthRoleName": "amplify-harrynghomepage-prod-122256-unauthRole",
-      "StackName": "amplify-harrynghomepage-prod-122256",
-      "StackId": "arn:aws:cloudformation:ap-southeast-2:819809268659:stack/amplify-harrynghomepage-prod-122256/af860190-8cf3-11ed-8e2e-0aeada17fb5c",
-      "AmplifyAppId": "d2vny3m5dzf5x9"
-    },
-    "categories": {
-      "api": {
-        "harrynghomepage": {}
-      }
-    }
-  },
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-harrynghomepage-dev-75202-authRole",
-      "UnauthRoleArn": "arn:aws:iam::819809268659:role/amplify-harrynghomepage-dev-75202-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::819809268659:role/amplify-harrynghomepage-dev-75202-authRole",
+      "AuthRoleName": "amplify-harrynghomepage-dev-170534-authRole",
+      "UnauthRoleArn": "arn:aws:iam::819809268659:role/amplify-harrynghomepage-dev-170534-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::819809268659:role/amplify-harrynghomepage-dev-170534-authRole",
       "Region": "ap-southeast-2",
-      "DeploymentBucketName": "amplify-harrynghomepage-dev-75202-deployment",
-      "UnauthRoleName": "amplify-harrynghomepage-dev-75202-unauthRole",
-      "StackName": "amplify-harrynghomepage-dev-75202",
-      "StackId": "arn:aws:cloudformation:ap-southeast-2:819809268659:stack/amplify-harrynghomepage-dev-75202/ad4261c0-8c04-11ed-a4d2-024c8d72058e",
-      "AmplifyAppId": "d2vny3m5dzf5x9"
+      "DeploymentBucketName": "amplify-harrynghomepage-dev-170534-deployment",
+      "UnauthRoleName": "amplify-harrynghomepage-dev-170534-unauthRole",
+      "StackName": "amplify-harrynghomepage-dev-170534",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:819809268659:stack/amplify-harrynghomepage-dev-170534/2b6758a0-8d1b-11ed-ac40-068f0c0b2702",
+      "AmplifyAppId": "dkl9qm3qolckl"
     },
     "categories": {
       "api": {

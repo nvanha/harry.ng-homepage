@@ -1,8 +1,12 @@
+import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import config from "@/configs";
-import { HomePage, WorkItemPage, WorksPage } from "@/pages/Landing";
-import { NotFoundPage } from "@/pages/Other";
+
+const HomePage = React.lazy(() => import("@/pages/Landing/HomePage"));
+const WorkItemPage = React.lazy(() => import("@/pages/Landing/WorkItemPage"));
+const WorksPage = React.lazy(() => import("@/pages/Landing/WorksPage"));
+const NotFoundPage = React.lazy(() => import("@/pages/Other/NotFoundPage"));
 
 export default [
   {

@@ -1,11 +1,11 @@
 type Likes @model @auth(rules: [{ allow: public }]) {
   id: ID!
-  liked: Int!
+  liked: String!
 }
 
 type Views @model @auth(rules: [{ allow: public }]) {
   id: ID!
-  viewed: Int!
+  viewed: String!
 }
 
 type Subscription {
