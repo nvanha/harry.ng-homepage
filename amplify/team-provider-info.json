@@ -10,6 +10,11 @@
       "StackName": "amplify-harrynghomepage-prod-122256",
       "StackId": "arn:aws:cloudformation:ap-southeast-2:819809268659:stack/amplify-harrynghomepage-prod-122256/af860190-8cf3-11ed-8e2e-0aeada17fb5c",
       "AmplifyAppId": "d2vny3m5dzf5x9"
+    },
+    "categories": {
+      "api": {
+        "harrynghomepage": {}
+      }
     }
   },
   "dev": {
@@ -23,6 +28,11 @@
       "StackName": "amplify-harrynghomepage-dev-75202",
       "StackId": "arn:aws:cloudformation:ap-southeast-2:819809268659:stack/amplify-harrynghomepage-dev-75202/ad4261c0-8c04-11ed-a4d2-024c8d72058e",
       "AmplifyAppId": "d2vny3m5dzf5x9"
+    },
+    "categories": {
+      "api": {
+        "harrynghomepage": {}
+      }
     }
   }
 }

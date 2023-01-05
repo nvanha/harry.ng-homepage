@@ -1,0 +1,14 @@
+type Likes @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  liked: Int!
+}
+
+type Views @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  viewed: Int!
+}
+
+type Subscription {
+  newOnUpdateLikes: Likes @aws_subscribe(mutations: ["updateLikes"])
+  newOnUpdateViews: Views @aws_subscribe(mutations: ["updateViews"])
+}
