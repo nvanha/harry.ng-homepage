@@ -23,6 +23,7 @@
     "@vitejs/plugin-react": "^3.0.0",
     "autoprefixer": "^10.4.13",
     "eslint": "^8.28.0",
+    "framer-motion": "^8.1.8",
     "postcss": "^8.4.20",
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.6.1",

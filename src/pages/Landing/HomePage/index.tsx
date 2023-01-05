@@ -1,3 +1,4 @@
+import Helmet from "@/components/helmet";
 import {
   AboutSection,
   BioSection,
@@ -8,13 +9,13 @@ import {
 
 const HomePage = () => {
   return (
-    <div className="home-page">
+    <Helmet title="Homepage" customClassName="home-page">
       <AboutSection />
       <WorkSection />
       <BioSection />
       <SkillsSection />
       <ContactSection />
-    </div>
+    </Helmet>
   );
 };
 

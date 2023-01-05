@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { IoChevronForward, IoOpenOutline } from "react-icons/io5";
 import constants from "@/constants";
 import { Link, useLocation, useParams } from "react-router-dom";
+import Helmet from "@/components/helmet";
 
 interface IProps {
   data:
@@ -34,7 +35,7 @@ const WorkItemPage = () => {
   }, [workId]);
 
   return (
-    <div className="works-page">
+    <Helmet title={data?.titleThumb} customClassName="work-item-page">
       <section className="section-wrapper bio-section mb-6">
         <div className="flex items-center flex-wrap mb-4">
           <Link
@@ -101,7 +102,7 @@ const WorkItemPage = () => {
           />
         </div>
       </section>
-    </div>
+    </Helmet>
   );
 };
 

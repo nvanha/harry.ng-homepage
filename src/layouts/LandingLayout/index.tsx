@@ -5,7 +5,7 @@ const LandingLayout = ({ children }) => (
     <Header />
     <main className="pt-14 px-4 max-w-3xl mx-auto">
       <ThreeItem />
-      {children}
+      <div className="relative z-[2]">{children}</div>
     </main>
     <Footer />
   </div>
