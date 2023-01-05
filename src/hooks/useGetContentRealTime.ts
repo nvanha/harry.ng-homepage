@@ -27,19 +27,22 @@ const useGetContentRealTime = (type: string, dependencies?) => {
     getResDataToState();
   }, [dataOnUpdate, dependencies]);
 
-  let subscriptionOnUpdate;
-
-  const setupSubscriptions = () => {
-    subscriptionOnUpdate = API.graphql(
-      graphqlOperation(type === "Like" ? newOnUpdateLikes : newOnUpdateViews)
-    ).subscribe({
-      next: (dataOnUpdate) => {
-        setDataOnUpdate(dataOnUpdate);
-      },
-    });
-  };
-
   useEffect(() => {
+    let subscriptionOnUpdate;
+
+    const setupSubscriptions = () => {
+      subscriptionOnUpdate = (
+        API.graphql(
+          graphqlOperation(
+            type === "Like" ? newOnUpdateLikes : newOnUpdateViews
+          )
+        ) as any
+      ).subscribe({
+        next: (dataOnUpdate) => {
+          setDataOnUpdate(dataOnUpdate);
+        },
+      });
+    };
     setIsLoading(true);
     setupSubscriptions();
 
