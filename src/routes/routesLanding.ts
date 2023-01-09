@@ -26,7 +26,7 @@ export default [
   },
   {
     id: `landing-${uuidv4()}`,
-    path: config.routesLanding.notFound,
+    path: config.routesGeneral.notFound,
     element: NotFoundPage,
   },
 ];

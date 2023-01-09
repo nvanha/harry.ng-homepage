@@ -1,8 +1,9 @@
-import { routesAuth, routesLanding } from "./routes";
+import { routesAuth, routesLanding, routesGeneral } from "./routes";
 
 const config = {
   routesAuth,
   routesLanding,
+  routesGeneral,
 };
 
 export default config;
