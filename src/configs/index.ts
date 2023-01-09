@@ -1,6 +1,7 @@
-import { routesLanding } from "./routes";
+import { routesAuth, routesLanding } from "./routes";
 
 const config = {
+  routesAuth,
   routesLanding,
 };
 
