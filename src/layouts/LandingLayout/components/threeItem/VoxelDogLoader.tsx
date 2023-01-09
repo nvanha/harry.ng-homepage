@@ -1,10 +1,10 @@
 import { API } from "aws-amplify";
+import { useEffect, useState } from "react";
 import { CgSpinner } from "react-icons/cg";
 import { FcLike } from "react-icons/fc";
 import { HiEye } from "react-icons/hi";
 
 import { updateLikes, updateViews } from "@/graphql/mutations";
-import { useEffect, useState } from "react";
 import hooks from "@/hooks";
 
 const DogSpinner = () => (
@@ -112,7 +112,7 @@ const DogContainer = ({ customRef, children }) => {
   return (
     <section
       ref={customRef}
-      className="w-[280px] h-[280px] sm:w-[480px] sm:h-[480px] md:w-[640px] md:h-[640px] mx-auto -mt-7 sm:-mt-14 -mb-10 sm:-mb-36 md:-mb-44 bg-none relative z-[1]"
+      className="w-[280px] h-[280px] mx-auto -mt-7 -mb-10 bg-none relative z-[1] sm:w-[480px] sm:h-[480px] sm:-mt-14 sm:-mb-36 md:w-[640px] md:h-[640px] md:-mb-44"
     >
       {children}
       <SectionAction />

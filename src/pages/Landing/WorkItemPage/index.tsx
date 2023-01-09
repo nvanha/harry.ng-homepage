@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { IoChevronForward, IoOpenOutline } from "react-icons/io5";
-import constants from "@/constants";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+
 import Helmet from "@/components/helmet";
+import constants from "@/constants";
 
 interface IProps {
   data:
@@ -22,6 +23,7 @@ interface IProps {
 
 const WorkItemPage = () => {
   const { workId } = useParams();
+  const navigate = useNavigate();
 
   const [data, setData] = useState<IProps["data"]>();
 
@@ -30,7 +32,11 @@ const WorkItemPage = () => {
       const dataActive = constants.fakeData.find(
         (workItem) => workItem.id === workId
       );
-      setData(dataActive);
+      if (dataActive) {
+        setData(dataActive);
+      } else {
+        navigate("/works");
+      }
     }
   }, [workId]);
 
@@ -40,7 +46,7 @@ const WorkItemPage = () => {
         <div className="flex items-center flex-wrap mb-4">
           <Link
             to="./../"
-            className="text-blue-600 dark:text-pink-400 hover:underline hover:underline-offset-2"
+            className="text-blue-600 hover:underline hover:underline-offset-2 dark:text-pink-400"
           >
             Works
           </Link>{" "}
@@ -53,13 +59,13 @@ const WorkItemPage = () => {
         <ul className="my-4 ml-4">
           {data?.linkWebsite && (
             <li className="flex items-center flex-wrap mb-1">
-              <span className="bg-green-100 text-green-700 dark:text-green-200 dark:bg-[#9ae6b429] text-xs uppercase px-1 mr-2 rounded-sm font-medium">
+              <span className="bg-green-100 text-green-700 text-xs uppercase px-1 mr-2 rounded-sm font-medium dark:text-green-200 dark:bg-[#9ae6b429]">
                 website
               </span>{" "}
               <a
                 href={data?.linkWebsite}
                 target="_blank"
-                className="break-all text-blue-600 dark:text-pink-400 hover:underline hover:underline-offset-2"
+                className="break-all text-blue-600 hover:underline hover:underline-offset-2 dark:text-pink-400"
               >
                 {data?.linkWebsite}
                 <IoOpenOutline className="ml-2 inline" />
@@ -68,13 +74,13 @@ const WorkItemPage = () => {
           )}
           {data?.linkRepo && (
             <li className="flex items-center flex-wrap mb-1">
-              <span className="bg-green-100 text-green-700 dark:text-green-200 dark:bg-[#9ae6b429] text-xs uppercase px-1 mr-2 rounded-sm font-medium">
+              <span className="bg-green-100 text-green-700 text-xs uppercase px-1 mr-2 rounded-sm font-medium dark:text-green-200 dark:bg-[#9ae6b429]">
                 source
               </span>{" "}
               <a
                 href={data?.linkRepo}
                 target="_blank"
-                className="break-all text-blue-600 dark:text-pink-400 hover:underline hover:underline-offset-2"
+                className="break-all text-blue-600 hover:underline hover:underline-offset-2 dark:text-pink-400"
               >
                 {data?.linkRepo}
                 <IoOpenOutline className="ml-2 inline" />
@@ -82,13 +88,13 @@ const WorkItemPage = () => {
             </li>
           )}
           <li className="flex items-center flex-wrap mb-1">
-            <span className="bg-green-100 text-green-700 dark:text-green-200 dark:bg-[#9ae6b429] text-xs uppercase px-1 mr-2 rounded-sm font-medium">
+            <span className="bg-green-100 text-green-700 text-xs uppercase px-1 mr-2 rounded-sm font-medium dark:text-green-200 dark:bg-[#9ae6b429]">
               stack
             </span>{" "}
             {data?.stack?.join(", ")}
           </li>
           <li className="flex items-center flex-wrap">
-            <span className="bg-green-100 text-green-700 dark:text-green-200 dark:bg-[#9ae6b429] text-xs uppercase px-1 mr-2 rounded-sm font-medium">
+            <span className="bg-green-100 text-green-700 text-xs uppercase px-1 mr-2 rounded-sm font-medium dark:text-green-200 dark:bg-[#9ae6b429]">
               category
             </span>{" "}
             {data?.category?.join(", ")}

@@ -1,3 +1,4 @@
+import { Card, CardBody, CardHeader } from "@material-tailwind/react";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -19,16 +20,22 @@ interface IProps {
 
 const WorkItem: React.FC<IProps> = ({ data }) => {
   return (
-    <div className="mb-6 text-center cursor-pointer work-item">
+    <Card className="mb-6 bg-white dark:bg-[#525252]">
       <Link to={`/works/${data?.id}`}>
-        <img
-          src={data?.image}
-          className="w-full object-cover object-top rounded-md shadow-md"
-          alt=""
-        />
-        <h4 className="mt-2 text-xl">{data?.titleThumb}</h4>
+        <CardHeader floated={false} className="h-[22vh]">
+          <img
+            src={data?.image}
+            alt=""
+            className="h-full w-full object-cover object-top"
+          />
+        </CardHeader>
+        <CardBody className="text-center">
+          <h4 className="mt-2 text-xl text-black-700 dark:text-colorPrimaryDark">
+            {data?.titleThumb}
+          </h4>
+        </CardBody>
       </Link>
-    </div>
+    </Card>
   );
 };
 

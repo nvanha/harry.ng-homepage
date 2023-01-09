@@ -4,16 +4,16 @@ const BioSection = () => {
   return (
     <section className="section-wrapper bio-section mb-6">
       <h3 className="section-title">Bio</h3>
-      <p className="sm:pl-[183.5px] sm:-indent-[183.5px] font-extralight">
+      <p className="font-extralight sm:pl-[183.5px] sm:-indent-[183.5px]">
         <span className="font-medium mr-4">Jan 2022 to Dec 2022</span>Worked at
         Biwoco, Can Tho, Vietnam (Software Engineer - Frontend Team Lead)
       </p>
-      <p className="sm:pl-[185.31px] sm:-indent-[185.31px] font-extralight">
+      <p className="font-extralight sm:pl-[185.31px] sm:-indent-[185.31px]">
         <span className="font-medium mr-4">Nov 2021 to Dec 2022</span>
         Worked at CredShare, West Perth, Australia (Remote - Software Engineer -
         Frontend Team Lead)
       </p>
-      <p className="sm:pl-[114.54px] sm:-indent-[114.54px] font-extralight">
+      <p className="font-extralight sm:pl-[114.54px] sm:-indent-[114.54px]">
         <span className="font-medium mr-4">2018 to 2022</span>
         Completed the Bachelor's Program in the Can Tho University of
         Information Technology - GPA: 3.28/4

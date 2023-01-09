@@ -9,7 +9,7 @@ const WorkSection = () => {
         things and do things right. Hence, I can collaborate very well with
         teammates meanwhile working independently is one of my strong points.
       </p>
-      <button className="mx-auto my-4 btn">Download CV</button>
+      <button className="btn mx-auto my-4">Download CV</button>
     </section>
   );
 };

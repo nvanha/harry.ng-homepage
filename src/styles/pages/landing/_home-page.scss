@@ -1,0 +1,7 @@
+.home-page {
+  section.contact-section {
+    .contact-item {
+      @apply px-4 w-fit h-10 rounded-md font-normal text-teal-600 flex items-center justify-center transition-all hover:bg-teal-50 hover:underline hover:underline-offset-4 hover:decoration-2 dark:text-teal-200 dark:hover:bg-[#81e6d91f] dark:hover:decoration-pink-400;
+    }
+  }
+}

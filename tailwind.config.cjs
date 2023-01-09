@@ -9,6 +9,7 @@ module.exports = withMT({
     extend: {
       fontFamily: {
         lexend: ['"Lexend Deca"', "sans-serif"],
+        sans: ['"Lexend Deca"', "sans-serif"],
       },
     },
     colors: {
@@ -128,6 +129,12 @@ module.exports = withMT({
         300: "#f3f3f3", // Background
       },
       white: "#ffffff",
+      backgroundHeaderLight: "#ffffff",
+      backgroundHeaderDark: "#20202380",
+      backgroundBodyLight: "#f0e7db",
+      backgroundBodyDark: "#202023",
+      colorPrimaryDark: "#ffffffeb",
+      backgroundDropdownItemActive: "#eceff1cc",
     },
   },
   plugins: [require("tailwindcss"), require("autoprefixer")],
