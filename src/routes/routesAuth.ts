@@ -18,9 +18,4 @@ export default [
     path: config.routesAuth.dashboard,
     element: DashboardPage,
   },
-  // {
-  //   id: `auth-${uuidv4()}`,
-  //   path: config.routesGeneral.notFound,
-  //   element: NotFoundPage,
-  // },
 ];
