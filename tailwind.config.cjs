@@ -134,6 +134,7 @@ module.exports = withMT({
       backgroundBodyLight: "#f0e7db",
       backgroundBodyDark: "#202023",
       colorPrimaryDark: "#ffffffeb",
+      colorSecondaryDark: "#a5a5ba",
       backgroundDropdownItemActive: "#eceff1cc",
     },
   },

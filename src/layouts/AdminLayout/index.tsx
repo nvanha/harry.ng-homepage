@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import Loading from "@/components/loading";
 
-const AuthLayout = ({ children }) => {
+const AdminLayout = ({ children }) => {
   const navigate = useNavigate();
 
   const [isAuth, setIsAuth] = useState(false);
@@ -29,7 +29,7 @@ const AuthLayout = ({ children }) => {
 
   useEffect(() => {
     if (isCheck) {
-      if (isAuth) navigate("/auth/dashboard");
+      if (!isAuth) navigate("/login");
     }
   }, [isAuth, isCheck]);
 
@@ -37,11 +37,8 @@ const AuthLayout = ({ children }) => {
     if (isLoading) return <Loading />;
 
     return (
-      <div
-        id="auth-layout"
-        className="bg-[#181826] w-screen min-h-screen text-colorPrimaryDark auth-layout"
-      >
-        <main className="py-14 px-4 max-w-2xl mx-auto">{children}</main>
+      <div id="admin-layout" className="admin-layout">
+        <main className="px-4 max-w-3xl mx-auto">{children}</main>
       </div>
     );
   };
@@ -49,4 +46,4 @@ const AuthLayout = ({ children }) => {
   return render();
 };
 
-export default AuthLayout;
+export default AdminLayout;

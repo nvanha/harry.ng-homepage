@@ -1,30 +1,20 @@
 {
-  "prod": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-harrynghomepage-prod-170650-authRole",
-      "UnauthRoleArn": "arn:aws:iam::819809268659:role/amplify-harrynghomepage-prod-170650-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::819809268659:role/amplify-harrynghomepage-prod-170650-authRole",
-      "Region": "ap-southeast-2",
-      "DeploymentBucketName": "amplify-harrynghomepage-prod-170650-deployment",
-      "UnauthRoleName": "amplify-harrynghomepage-prod-170650-unauthRole",
-      "StackName": "amplify-harrynghomepage-prod-170650",
-      "StackId": "arn:aws:cloudformation:ap-southeast-2:819809268659:stack/amplify-harrynghomepage-prod-170650/58d1a0c0-8d1b-11ed-a4d2-024c8d72058e",
-      "AmplifyAppId": "dkl9qm3qolckl"
-    }
-  },
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-harrynghomepage-dev-170534-authRole",
-      "UnauthRoleArn": "arn:aws:iam::819809268659:role/amplify-harrynghomepage-dev-170534-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::819809268659:role/amplify-harrynghomepage-dev-170534-authRole",
+      "AuthRoleName": "amplify-harrynghomepage-dev-150040-authRole",
+      "UnauthRoleArn": "arn:aws:iam::819809268659:role/amplify-harrynghomepage-dev-150040-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::819809268659:role/amplify-harrynghomepage-dev-150040-authRole",
       "Region": "ap-southeast-2",
-      "DeploymentBucketName": "amplify-harrynghomepage-dev-170534-deployment",
-      "UnauthRoleName": "amplify-harrynghomepage-dev-170534-unauthRole",
-      "StackName": "amplify-harrynghomepage-dev-170534",
-      "StackId": "arn:aws:cloudformation:ap-southeast-2:819809268659:stack/amplify-harrynghomepage-dev-170534/2b6758a0-8d1b-11ed-ac40-068f0c0b2702",
-      "AmplifyAppId": "dkl9qm3qolckl"
+      "DeploymentBucketName": "amplify-harrynghomepage-dev-150040-deployment",
+      "UnauthRoleName": "amplify-harrynghomepage-dev-150040-unauthRole",
+      "StackName": "amplify-harrynghomepage-dev-150040",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:819809268659:stack/amplify-harrynghomepage-dev-150040/8c7feff0-90f7-11ed-b6bc-06b12c388f38",
+      "AmplifyAppId": "d2chhtawomad1m"
     },
     "categories": {
+      "auth": {
+        "harrynghomepagec6b81971": {}
+      },
       "api": {
         "harrynghomepage": {}
       }

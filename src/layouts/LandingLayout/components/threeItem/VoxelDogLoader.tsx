@@ -33,7 +33,7 @@ const SectionAction = () => {
       query: updateLikes,
       variables: {
         input: {
-          id: "92130984",
+          id: "753546474",
           liked:
             currentLikeAction === "liked"
               ? String(parseInt(resDataLiked) - 1)
@@ -59,7 +59,7 @@ const SectionAction = () => {
       query: updateViews,
       variables: {
         input: {
-          id: "24325927",
+          id: "753546474",
           viewed: String(parseInt(resDataViewed) + 1),
         },
       },

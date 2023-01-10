@@ -8,15 +8,6 @@ import MenuMobile from "./MenuMobile";
 const Header = () => {
   const [theme, setTheme] = useState("light");
 
-  useEffect(() => {
-    const currentTheme = localStorage.getItem("theme");
-
-    if (currentTheme === "dark") {
-      document.documentElement.classList.add("dark");
-      setTheme("dark");
-    }
-  }, []);
-
   const handleChangeTheme = () => {
     const currentTheme = localStorage.getItem("theme");
 

@@ -1,7 +1,13 @@
-import { routesAuth, routesLanding, routesGeneral } from "./routes";
+import {
+  routesAuth,
+  routesAdmin,
+  routesLanding,
+  routesGeneral,
+} from "./routes";
 
 const config = {
   routesAuth,
+  routesAdmin,
   routesLanding,
   routesGeneral,
 };

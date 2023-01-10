@@ -1,5 +1,10 @@
 const routesAuth = {
-  login: "/auth/login",
+  login: "/login",
+  register: "/register",
+  confirmAccount: "/confirm-account/:username",
+};
+
+const routesAdmin = {
   dashboard: "/auth/dashboard",
 };
 
@@ -13,4 +18,4 @@ const routesGeneral = {
   notFound: "*",
 };
 
-export { routesAuth, routesLanding, routesGeneral };
+export { routesAuth, routesAdmin, routesLanding, routesGeneral };

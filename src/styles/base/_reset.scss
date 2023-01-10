@@ -7,3 +7,7 @@ body {
 
   @apply font-lexend text-black-700 text-base font-light bg-backgroundBodyLight dark:text-colorPrimaryDark dark:bg-backgroundBodyDark;
 }
+
+.error-msg {
+  @apply text-red-500 text-sm text-left;
+}

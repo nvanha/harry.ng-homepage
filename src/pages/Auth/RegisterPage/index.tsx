@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { CgSpinner } from "react-icons/cg";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,38 +7,65 @@ import * as Yup from "yup";
 
 import LogoURL from "@/assets/logo/logo-full.png";
 import { InputPassword, InputText } from "@/components/forms";
-import { signInRequest } from "@/redux/auth/actions";
+import { signUpRequest } from "@/redux/auth/actions";
 import { Button } from "@material-tailwind/react";
 
-const LoginPage = () => {
-  const { isSignInRequest, isSignInSuccess, isSignInFailure, errorMessages } =
+const RegisterPage = () => {
+  const { isSignUpRequest, isSignUpSuccess, isSignUpFailure, errorMessages } =
     useSelector((store: any) => store.auth);
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
+  const [username, setUsername] = useState("");
+
   const formik = useFormik({
     initialValues: {
       username: "",
+      email: "",
       password: "",
+      rePassword: "",
     },
     validationSchema: Yup.object({
-      username: Yup.string().required("Username/Email is required!"),
-      password: Yup.string()
-        .required("Password is required!")
-        .max(8, "Must be 8 characters or more")
+      username: Yup.string()
+        .trim()
+        .required("Username is required!")
+        .min(2, "Must be 2 characters or more")
         .max(20, "Must be 20 characters or less"),
+      email: Yup.string()
+        .trim()
+        .required("Email is required!")
+        .email("Invalid email address"),
+      password: Yup.string()
+        .trim()
+        .required("Password is required!")
+        .min(8, "Must be 8 characters or more")
+        .max(20, "Must be 20 characters or less")
+        .matches(/[A-Z]/, "Password must contain uppercase letters.")
+        .matches(/[0-9]/, "Password must contain number letters."),
+      rePassword: Yup.string()
+        .required("Confirm Password is required!")
+        .oneOf([Yup.ref("password")], "Password not match"),
     }),
     onSubmit: (values) => {
-      dispatch(signInRequest(values));
+      const { email, password, username } = values;
+      const data = {
+        username,
+        password,
+        attributes: {
+          email,
+        },
+      };
+      setUsername(username);
+      dispatch(signUpRequest(data));
     },
   });
 
   useEffect(() => {
-    if (isSignInSuccess) {
-      navigate(`/auth/dashboard`);
+    if (isSignUpSuccess) {
+      navigate(`/confirm-account/${username}`);
     }
-  }, [isSignInSuccess]);
+  }, [isSignUpSuccess]);
 
   return (
     <section className="px-14 py-12 rounded-md bg-[#212134] shadow-[1px_1px_10px_rgba(3,3,5,0.2)] text-center register-page">
@@ -49,9 +76,9 @@ const LoginPage = () => {
         Welcome to Harry.ng CMS!
       </h1>
       <p className="text-colorSecondaryDark mb-6 font-medium">
-        Log in to your Harry.ng CMS account
+        Register your account Harry.ng CMS
       </p>
-      {isSignInFailure && (
+      {isSignUpFailure && (
         <div className="error-msg">{errorMessages[0].message}</div>
       )}
       <form noValidate onSubmit={formik.handleSubmit}>
@@ -65,6 +92,16 @@ const LoginPage = () => {
           isRequired
           {...formik.getFieldProps("username")}
         />
+        <InputText
+          customClassName="!text-colorPrimaryDark"
+          label="Email"
+          isValid={formik.touched.email && !formik.errors.email}
+          isInvalid={formik.touched.email && formik.errors.email}
+          isError={formik.touched.email && formik.errors.email}
+          msgError={formik.errors.email}
+          isRequired
+          {...formik.getFieldProps("email")}
+        />
         <InputPassword
           customClassName="!text-colorPrimaryDark"
           label="Password"
@@ -75,26 +112,36 @@ const LoginPage = () => {
           isRequired
           {...formik.getFieldProps("password")}
         />
+        <InputPassword
+          customClassName="!text-colorPrimaryDark"
+          label="Confirm Password"
+          isValid={formik.touched.rePassword && !formik.errors.rePassword}
+          isInvalid={formik.touched.rePassword && formik.errors.rePassword}
+          isError={formik.touched.rePassword && formik.errors.rePassword}
+          msgError={formik.errors.rePassword}
+          isRequired
+          {...formik.getFieldProps("rePassword")}
+        />
         <Button
-          disabled={isSignInRequest}
+          disabled={isSignUpRequest}
           className="w-full h-[50px] flex items-center justify-center"
           type="submit"
         >
-          {isSignInRequest ? (
+          {isSignUpRequest ? (
             <CgSpinner className="animate-spin w-5 h-5" />
           ) : (
-            "Login"
+            "Create Account"
           )}
         </Button>
       </form>
       <Link
-        to="/forgot-password"
+        to="/login"
         className="mt-6 inline-block text-blue-600 font-medium hover:underline"
       >
-        Forgot your password?
+        Already have an account?
       </Link>
     </section>
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
