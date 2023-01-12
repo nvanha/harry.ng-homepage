@@ -4,6 +4,7 @@ import { CgSpinner } from "react-icons/cg";
 import { FcLike } from "react-icons/fc";
 import { HiEye } from "react-icons/hi";
 
+import { ButtonCustom } from "@/components/forms";
 import { updateLikes, updateViews } from "@/graphql/mutations";
 import hooks from "@/hooks";
 
@@ -79,10 +80,10 @@ const SectionAction = () => {
 
   return (
     <div className="absolute top-20 left-0 w-full flex items-center justify-between">
-      <button
-        className={`btn ${
-          currentLikeAction === "liked" ? "bg-red-200" : "bg-red-100"
-        } text-black-700 flex items-center justify-between gap-2 hover:bg-red-200`}
+      <ButtonCustom
+        customClassName={`${
+          currentLikeAction === "liked" ? "bg-red-300" : "bg-red-200"
+        } hover:bg-red-300`}
         onClick={handleLike}
       >
         <FcLike
@@ -95,15 +96,15 @@ const SectionAction = () => {
         ) : (
           parseInt(resDataLiked)
         )}
-      </button>
-      <button className="btn bg-blue-100 text-black-700 flex items-center justify-between gap-2">
+      </ButtonCustom>
+      <ButtonCustom customClassName="bg-blue-200">
         <HiEye className="fill-blue-500" />{" "}
         {isLoadingViewed ? (
           <CgSpinner className="animate-spin w-4 h-4" />
         ) : (
           parseInt(resDataViewed)
         )}
-      </button>
+      </ButtonCustom>
     </div>
   );
 };

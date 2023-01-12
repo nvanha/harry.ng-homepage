@@ -4,7 +4,7 @@
       @apply max-w-prose mx-auto sm:px-4;
 
       h3.section-title {
-        @apply mt-3 mb-4 text-xl font-semibold underline underline-offset-8 decoration-4 dark:decoration-[#525252];
+        @apply mt-3 mb-4 text-2xl uppercase font-bold flex items-center;
       }
     }
   }

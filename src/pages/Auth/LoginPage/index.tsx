@@ -6,9 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
 import LogoURL from "@/assets/logo/logo-full.png";
-import { InputPassword, InputText } from "@/components/forms";
+import { ButtonCustom, InputPassword, InputText } from "@/components/forms";
 import { signInRequest } from "@/redux/auth/actions";
-import { Button } from "@material-tailwind/react";
 
 const LoginPage = () => {
   const { isSignInRequest, isSignInSuccess, isSignInFailure, errorMessages } =
@@ -45,18 +44,18 @@ const LoginPage = () => {
       <Link to="/" className="inline-block mx-auto">
         <img src={LogoURL} alt="" className="w-[72px]" />
       </Link>
-      <h1 className="text-4xl font-semibold mt-6 mb-2">
+      <h1 className="text-4xl font-bold font-poppins mt-6 mb-2">
         Welcome to Harry.ng CMS!
       </h1>
       <p className="text-colorSecondaryDark mb-6 font-medium">
         Log in to your Harry.ng CMS account
       </p>
       {isSignInFailure && (
-        <div className="error-msg">{errorMessages[0].message}</div>
+        <div className="error-msg mb-6">{errorMessages[0].message}</div>
       )}
       <form noValidate onSubmit={formik.handleSubmit}>
         <InputText
-          customClassName="!text-colorPrimaryDark"
+          customClassName="!text-colorPrimaryDark !font-bold"
           label="Username"
           isValid={formik.touched.username && !formik.errors.username}
           isInvalid={formik.touched.username && formik.errors.username}
@@ -66,7 +65,7 @@ const LoginPage = () => {
           {...formik.getFieldProps("username")}
         />
         <InputPassword
-          customClassName="!text-colorPrimaryDark"
+          customClassName="!text-colorPrimaryDark !font-bold"
           label="Password"
           isValid={formik.touched.password && !formik.errors.password}
           isInvalid={formik.touched.password && formik.errors.password}
@@ -75,9 +74,9 @@ const LoginPage = () => {
           isRequired
           {...formik.getFieldProps("password")}
         />
-        <Button
-          disabled={isSignInRequest}
-          className="w-full h-[50px] flex items-center justify-center"
+        <ButtonCustom
+          variant={isSignInRequest ? "disabled" : "primary"}
+          customClassName="w-full h-[50px]"
           type="submit"
         >
           {isSignInRequest ? (
@@ -85,14 +84,8 @@ const LoginPage = () => {
           ) : (
             "Login"
           )}
-        </Button>
+        </ButtonCustom>
       </form>
-      <Link
-        to="/forgot-password"
-        className="mt-6 inline-block text-blue-600 font-medium hover:underline"
-      >
-        Forgot your password?
-      </Link>
     </section>
   );
 };

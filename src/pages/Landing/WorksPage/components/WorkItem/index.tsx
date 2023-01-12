@@ -30,7 +30,7 @@ const WorkItem: React.FC<IProps> = ({ data }) => {
           />
         </CardHeader>
         <CardBody className="text-center">
-          <h4 className="mt-2 text-xl text-black-700 dark:text-colorPrimaryDark">
+          <h4 className="mt-2 text-xl text-black-700 font-medium dark:text-colorPrimaryDark">
             {data?.titleThumb}
           </h4>
         </CardBody>

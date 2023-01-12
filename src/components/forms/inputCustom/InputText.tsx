@@ -2,12 +2,12 @@ import React from "react";
 import { Input } from "@material-tailwind/react";
 
 const InputText = ({
-  label,
+  label = "",
   isError,
-  msgError,
+  msgError = "",
   isValid,
   isInvalid,
-  isRequired,
+  isRequired = false,
   customClassName = "",
   ...rest
 }) => {

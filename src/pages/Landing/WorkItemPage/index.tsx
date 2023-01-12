@@ -46,20 +46,20 @@ const WorkItemPage = () => {
         <div className="flex items-center flex-wrap mb-4">
           <Link
             to="./../"
-            className="text-blue-600 hover:underline hover:underline-offset-2 dark:text-pink-400"
+            className="text-blue-600 font-semibold hover:underline hover:underline-offset-2 dark:text-pink-400"
           >
             Works
           </Link>{" "}
           <IoChevronForward className="mx-2 w-4" />
           <p className="text-xl font-semibold">{data?.titleFull}</p>
         </div>
-        <pre className="whitespace-pre-wrap font-lexend ml-4">
+        <pre className="whitespace-pre-wrap font-quicksand ml-4">
           {data?.content}
         </pre>
         <ul className="my-4 ml-4">
           {data?.linkWebsite && (
             <li className="flex items-center flex-wrap mb-1">
-              <span className="bg-green-100 text-green-700 text-xs uppercase px-1 mr-2 rounded-sm font-medium dark:text-green-200 dark:bg-[#9ae6b429]">
+              <span className="bg-green-100 text-green-700 text-xs uppercase px-1 mr-2 rounded-sm font-bold dark:text-green-200 dark:bg-[#9ae6b429]">
                 website
               </span>{" "}
               <a
@@ -74,7 +74,7 @@ const WorkItemPage = () => {
           )}
           {data?.linkRepo && (
             <li className="flex items-center flex-wrap mb-1">
-              <span className="bg-green-100 text-green-700 text-xs uppercase px-1 mr-2 rounded-sm font-medium dark:text-green-200 dark:bg-[#9ae6b429]">
+              <span className="bg-green-100 text-green-700 text-xs uppercase px-1 mr-2 rounded-sm font-bold dark:text-green-200 dark:bg-[#9ae6b429]">
                 source
               </span>{" "}
               <a
@@ -88,13 +88,13 @@ const WorkItemPage = () => {
             </li>
           )}
           <li className="flex items-center flex-wrap mb-1">
-            <span className="bg-green-100 text-green-700 text-xs uppercase px-1 mr-2 rounded-sm font-medium dark:text-green-200 dark:bg-[#9ae6b429]">
+            <span className="bg-green-100 text-green-700 text-xs uppercase px-1 mr-2 rounded-sm font-bold dark:text-green-200 dark:bg-[#9ae6b429]">
               stack
             </span>{" "}
             {data?.stack?.join(", ")}
           </li>
           <li className="flex items-center flex-wrap">
-            <span className="bg-green-100 text-green-700 text-xs uppercase px-1 mr-2 rounded-sm font-medium dark:text-green-200 dark:bg-[#9ae6b429]">
+            <span className="bg-green-100 text-green-700 text-xs uppercase px-1 mr-2 rounded-sm font-bold dark:text-green-200 dark:bg-[#9ae6b429]">
               category
             </span>{" "}
             {data?.category?.join(", ")}

@@ -8,8 +8,9 @@ module.exports = withMT({
   theme: {
     extend: {
       fontFamily: {
-        lexend: ['"Lexend Deca"', "sans-serif"],
-        sans: ['"Lexend Deca"', "sans-serif"],
+        poppins: ['"Poppins"', "sans-serif"],
+        quicksand: ['"Quicksand"', "sans-serif"],
+        sans: ['"Quicksand"', "sans-serif"],
       },
     },
     colors: {
@@ -122,7 +123,7 @@ module.exports = withMT({
         900: "#521B41",
       },
       black: {
-        700: "#1a202c", // Title - Focus
+        700: "#24292e", // Title - Focus
         600: "#6f6f6d", // Paragraph - Filled
         500: "#b1b1b1", // Information - Placeholder
         400: "#dddddd", // Border - Separator
@@ -130,11 +131,11 @@ module.exports = withMT({
       },
       white: "#ffffff",
       backgroundHeaderLight: "#ffffff",
-      backgroundHeaderDark: "#20202380",
+      backgroundHeaderDark: "#161b2280",
       backgroundBodyLight: "#f0e7db",
       backgroundBodyDark: "#202023",
-      colorPrimaryDark: "#ffffffeb",
-      colorSecondaryDark: "#a5a5ba",
+      colorPrimaryDark: "#c9d1d9",
+      colorSecondaryDark: "#8b949e",
       backgroundDropdownItemActive: "#eceff1cc",
     },
   },

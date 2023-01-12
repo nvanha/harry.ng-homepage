@@ -1,3 +1,4 @@
+import SpanGG from "@/components/spangg";
 import React from "react";
 import {
   IoLogoGithub,
@@ -9,7 +10,10 @@ import {
 const ContactSection = () => {
   return (
     <section className="section-wrapper contact-section mb-6">
-      <h3 className="section-title">On the web</h3>
+      <h3 className="section-title">
+        <SpanGG color="red" />
+        On the web
+      </h3>
       <a
         href="https://github.com/nvanha"
         target="_blank"

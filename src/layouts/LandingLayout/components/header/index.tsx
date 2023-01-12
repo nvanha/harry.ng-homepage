@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IoMoon, IoSunnyOutline } from "react-icons/io5";
 import { Link, NavLink } from "react-router-dom";
 
 import LogoURL from "@/assets/logo/logo-full.png";
+import { ButtonCustom } from "@/components/forms";
 import MenuMobile from "./MenuMobile";
 
 const Header = () => {
@@ -40,7 +41,7 @@ const Header = () => {
             <NavLink
               to="/works"
               className={({ isActive }) =>
-                `p-2 mr-2 hover:underline hover:underline-offset-4 ${
+                `p-2 mr-2 font-medium hover:underline hover:underline-offset-4 ${
                   isActive
                     ? "bg-teal-400 text-black-700 rounded-md dark:bg-teal-200"
                     : ""
@@ -52,12 +53,12 @@ const Header = () => {
           </li>
         </ul>
         <div className="flex items-center">
-          <button
+          <ButtonCustom
+            customClassName="w-10 h-10 p-0 bg-purple-500 dark:bg-orange-200 dark:text-black-700 hover:opacity-70"
             onClick={handleChangeTheme}
-            className="w-10 h-10 flex items-center justify-center rounded-md bg-purple-500 text-white transition-opacity hover:opacity-70 dark:bg-orange-200 dark:text-black-700"
           >
             {theme === "light" ? <IoMoon /> : <IoSunnyOutline />}
-          </button>
+          </ButtonCustom>
           <MenuMobile />
         </div>
       </div>

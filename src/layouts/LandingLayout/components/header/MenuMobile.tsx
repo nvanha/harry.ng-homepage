@@ -1,14 +1,19 @@
-import { Button, Menu, MenuHandler, MenuList } from "@material-tailwind/react";
+import { Menu, MenuHandler, MenuList } from "@material-tailwind/react";
 import { IoMenu } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
+
+import { ButtonCustom } from "@/components/forms";
 
 const MenuMobile = () => {
   return (
     <Menu>
       <MenuHandler>
-        <Button className="w-10 h-10 flex items-center justify-center rounded-md p-0 ml-2 sm:hidden">
+        <ButtonCustom
+          color="blue"
+          customClassName="w-10 h-10 p-0 ml-2 sm:hidden"
+        >
           <IoMenu className="w-5 h-5" />
-        </Button>
+        </ButtonCustom>
       </MenuHandler>
       <MenuList className="text-black-700 bg-backgroundHeaderLight dark:bg-backgroundBodyDark dark:text-colorPrimaryDark">
         <NavLink

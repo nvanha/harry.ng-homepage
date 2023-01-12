@@ -6,6 +6,8 @@ const routesAuth = {
 
 const routesAdmin = {
   dashboard: "/auth/dashboard",
+  contentManager: "/auth/content-manager",
+  contentManagerDetails: "/auth/content-manager/:table",
 };
 
 const routesLanding = {
