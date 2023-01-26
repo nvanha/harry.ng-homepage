@@ -67,9 +67,29 @@ function* deleteWork({ payload }) {
   }
 }
 
+function* testUploadImage({ payload }) {
+  const formData = new FormData();
+  formData.append("file", payload.file);
+
+  try {
+    const response = yield call(() =>
+      axiosMicroApiInstance.post("/test-upload-image", formData)
+    );
+    if (response?.status === 200) {
+      yield put(Actions.testUploadImageSuccess(response.data));
+    }
+  } catch (error: any) {
+    if (error?.response?.data) {
+      const { detail } = error.response.data;
+      yield put(Actions.testUploadImageFailure(detail));
+    }
+  }
+}
+
 export default function* () {
   yield takeLatest(Actions.addWorkRequest, addWork);
   yield takeLatest(Actions.getListWorksRequest, getListWorks);
   yield takeLatest(Actions.getWorkDetailsRequest, getWorkDetails);
   yield takeLatest(Actions.deleteWorkRequest, deleteWork);
+  yield takeLatest(Actions.testUploadImageRequest, testUploadImage);
 }

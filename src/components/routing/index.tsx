@@ -3,12 +3,12 @@ import { Route, Routes } from "react-router-dom";
 
 // import routes
 import routesAuth from "@/routes/routesAuth";
-import routesAdmin from "@/routes/routesAdmin";
+// import routesAdmin from "@/routes/routesAdmin";
 import routesLanding from "@/routes/routesLanding";
 
 // import layouts
 import AuthLayout from "@/layouts/AuthLayout";
-import AdminLayout from "@/layouts/AdminLayout";
+// import AdminLayout from "@/layouts/AdminLayout";
 import LandingLayout from "@/layouts/LandingLayout";
 
 // import others
@@ -34,7 +34,7 @@ const Routing = () => {
             />
           );
         })}
-        {routesAdmin.map((route) => {
+        {/* {routesAdmin.map((route) => {
           const Page = route.element;
           const Layout: any = AdminLayout;
 
@@ -49,7 +49,7 @@ const Routing = () => {
               }
             />
           );
-        })}
+        })} */}
         {routesLanding.map((route) => {
           const Page = route.element;
           const Layout: any = LandingLayout;

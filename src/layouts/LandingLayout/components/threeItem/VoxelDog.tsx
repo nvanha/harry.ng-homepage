@@ -14,6 +14,8 @@ const VoxelDog = () => {
   const [loading, setLoading] = useState(true);
   const refRenderer = useRef();
   const urlDogGLB = `${import.meta.env.VITE_AWS_S3_URI}/dog.glb`;
+  // const urlDogGLB =
+  // "src/layouts/LandingLayout/components/threeItem/room_min.glb";
 
   const handleWindowResize = useCallback(() => {
     const { current: renderer }: any = refRenderer;

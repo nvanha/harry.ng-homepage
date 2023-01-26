@@ -3,12 +3,13 @@ import {
   DialogBody,
   DialogFooter,
   DialogHeader,
-  Textarea,
+  Input,
 } from "@material-tailwind/react";
 import { IoArrowBack } from "react-icons/io5";
+import { useDispatch } from "react-redux";
 
-import { ButtonCustom, InputText } from "@/components/forms";
-
+import { ButtonCustom } from "@/components/forms";
+import { testUploadImageRequest } from "@/redux/works/actions";
 import "./ModalEditCollection.scss";
 
 const ModalEditCollection = ({
@@ -16,7 +17,16 @@ const ModalEditCollection = ({
   handleCloseModalEditCollection,
   dataActive,
 }) => {
-  console.log("dataActive: ", dataActive);
+  const dispatch = useDispatch();
+
+  const handleChangeFile = (e) => {
+    const Files = e.target.files[0];
+    let object = {
+      file: Files,
+    };
+    dispatch(testUploadImageRequest(object));
+  };
+
   return (
     <Dialog
       open={open}
@@ -41,7 +51,7 @@ const ModalEditCollection = ({
         </div>
       </DialogHeader>
       <DialogBody className="mt-[93px] h-[calc(100vh-93px-69px)] overflow-y-scroll">
-        <div className="mx-8 p-4 bg-[#212134] border-[1px] border-[#32324d] shadow-lg shadow-[#03030533] rounded">
+        {/* <div className="mx-8 p-4 bg-[#212134] border-[1px] border-[#32324d] shadow-lg shadow-[#03030533] rounded">
           <div className="mb-8 mt-4">
             <InputText
               label="Title thumb"
@@ -91,7 +101,12 @@ const ModalEditCollection = ({
               className="text-colorPrimaryDark font-bold"
             />
           </div>
-        </div>
+        </div> */}
+        <Input type="file" onChange={(e) => handleChangeFile(e)} />
+        <img
+          src="https://s3.ap-southeast-2.amazonaws.com/harry.ng-homepage/images/demodemo.png"
+          alt=""
+        />
       </DialogBody>
       <DialogFooter className="fixed bottom-0 left-0 w-screen bg-[#181826] p-3 border-t-[1px] border-[#32324d]">
         <ButtonCustom variant="disabled">

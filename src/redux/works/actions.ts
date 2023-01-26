@@ -16,4 +16,8 @@ export const deleteWorkRequest = createAction("DELETE_WORK_REQUEST");
 export const deleteWorkSuccess = createAction("DELETE_WORK_SUCCESS");
 export const deleteWorkFailure = createAction("DELETE_WORK_FAILURE");
 
+export const testUploadImageRequest = createAction("TEST_UPLOAD_IMAGE_REQUEST");
+export const testUploadImageSuccess = createAction("TEST_UPLOAD_IMAGE_SUCCESS");
+export const testUploadImageFailure = createAction("TEST_UPLOAD_IMAGE_FAILURE");
+
 export const resetWorksState = createAction("RESET_WORKS_STATE");

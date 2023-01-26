@@ -17,6 +17,9 @@ const initialState = {
   isDeleteWorkRequest: false,
   isDeleteWorkSuccess: false,
   isDeleteWorkFailure: false,
+  isTestUploadImageRequest: false,
+  isTestUploadImageSuccess: false,
+  isTestUploadImageFailure: false,
   errorMessages: [],
 };
 
@@ -105,6 +108,27 @@ const reducer = handleActions(
       isDeleteWorkRequest: false,
       isDeleteWorkSuccess: false,
       isDeleteWorkFailure: true,
+      errorMessages: [payload],
+    }),
+    // #endregion
+    // #region : Test upload image
+    [Actions.testUploadImageRequest]: (state) => ({
+      ...state,
+      isTestUploadImageRequest: true,
+      isTestUploadImageSuccess: false,
+      isTestUploadImageFailure: false,
+    }),
+    [Actions.testUploadImageSuccess]: (state) => ({
+      ...state,
+      isTestUploadImageRequest: false,
+      isTestUploadImageSuccess: true,
+      isTestUploadImageFailure: false,
+    }),
+    [Actions.testUploadImageFailure]: (state, { payload }) => ({
+      ...state,
+      isTestUploadImageRequest: false,
+      isTestUploadImageSuccess: false,
+      isTestUploadImageFailure: true,
       errorMessages: [payload],
     }),
     // #endregion
