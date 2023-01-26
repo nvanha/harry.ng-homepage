@@ -1,24 +1,27 @@
 import { forwardRef } from "react";
 
-/**
- * color: green, orange, red, blue, purple, pink, cyan, teal, yellow
- * variant: primary, disabled
- * size: l, m, s
- * customClassName: ''
- */
+interface ButtonDefaultProps {
+  color?:
+    | "green"
+    | "orange"
+    | "red"
+    | "blue"
+    | "purple"
+    | "pink"
+    | "cyan"
+    | "teal"
+    | "yellow";
+  variant?: "primary" | "disabled";
+  size?: "l" | "m" | "s";
+  disabled?: boolean;
+  customClassName?: string | "";
+  onClick?: () => void;
+  type?: "button" | "submit" | "reset" | undefined;
+  children?: React.ReactNode;
+}
 
 const ButtonCustom = forwardRef(
-  (
-    props: {
-      color?: string;
-      variant?: string;
-      size?: string;
-      disabled?: boolean;
-      customClassName?: string;
-      children?: any;
-    },
-    ref: any
-  ) => {
+  (props: ButtonDefaultProps, ref: React.ForwardedRef<unknown>) => {
     const {
       color = "teal",
       variant = "primary",
@@ -41,7 +44,7 @@ const ButtonCustom = forwardRef(
       <button
         className={`btn-custom ${COLOR} ${TYPE} ${SIZE} ${customClassName}`}
         disabled={DISABLED}
-        ref={ref}
+        ref={ref as any}
         {...rest}
       >
         {children || "Button Custom"}
