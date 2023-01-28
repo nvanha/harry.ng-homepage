@@ -8,7 +8,7 @@ import { ButtonCustom } from "@/components/forms";
 import { updateLikes, updateViews } from "@/graphql/mutations";
 import hooks from "@/hooks";
 
-const DogSpinner = () => (
+const ThreeItemSpinner = () => (
   <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
     <CgSpinner className="animate-spin w-10 h-10" />
   </div>
@@ -109,11 +109,11 @@ const SectionAction = () => {
   );
 };
 
-const DogContainer = ({ customRef, children }) => {
+const ThreeItemContainer = ({ customRef, children }) => {
   return (
     <section
       ref={customRef}
-      className="w-[280px] h-[280px] mx-auto -mt-7 -mb-10 bg-none relative z-[1] sm:w-[480px] sm:h-[480px] sm:-mt-14 sm:-mb-36 md:w-[640px] md:h-[640px] md:-mb-44"
+      className="w-full h-[calc(100vw-32px)] mx-auto -mt-7 -mb-10 bg-none relative z-[1] sm:w-[480px] sm:h-[480px] sm:-mt-14 sm:-mb-36 md:w-[640px] md:h-[640px] md:-mb-44"
     >
       {children}
       <SectionAction />
@@ -121,4 +121,4 @@ const DogContainer = ({ customRef, children }) => {
   );
 };
 
-export { DogSpinner, DogContainer };
+export { ThreeItemSpinner, ThreeItemContainer };

@@ -3,17 +3,19 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 import { loadGLTFModel } from "./model";
-import { DogContainer, DogSpinner } from "./VoxelDogLoader";
+import { ThreeItemSpinner, ThreeItemContainer } from "./ThreeItemLoader";
 
 function easeOutCirc(x) {
   return Math.sqrt(1 - Math.pow(x - 1, 4));
 }
 
-const VoxelDog = () => {
+const ThreeItem = () => {
   const refContainer = useRef();
   const [loading, setLoading] = useState(true);
   const refRenderer = useRef();
-  const urlDogGLB = `${import.meta.env.VITE_AWS_S3_URI}/threeItem/desktop.glb`;
+  const urlThreeItemGLB = `${
+    import.meta.env.VITE_AWS_S3_URI
+  }/threeItem/desktop.glb`;
 
   const handleWindowResize = useCallback(() => {
     const { current: renderer }: any = refRenderer;
@@ -71,7 +73,7 @@ const VoxelDog = () => {
       controls.autoRotate = true;
       controls.target = target;
 
-      loadGLTFModel(scene, urlDogGLB, {
+      loadGLTFModel(scene, urlThreeItemGLB, {
         receiveShadow: false,
         castShadow: false,
       }).then(() => {
@@ -119,10 +121,10 @@ const VoxelDog = () => {
   }, [handleWindowResize]);
 
   return (
-    <DogContainer customRef={refContainer}>
-      {loading && <DogSpinner />}
-    </DogContainer>
+    <ThreeItemContainer customRef={refContainer}>
+      {loading && <ThreeItemSpinner />}
+    </ThreeItemContainer>
   );
 };
 
-export default VoxelDog;
+export default ThreeItem;

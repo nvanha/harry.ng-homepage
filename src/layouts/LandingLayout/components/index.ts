@@ -1,5 +1,5 @@
 import Header from "./header";
 import Footer from "./footer";
-import ThreeItem from "./threeItem";
+import ThreeSection from "./threeSection";
 
-export { Header, Footer, ThreeItem };
+export { Header, Footer, ThreeSection };

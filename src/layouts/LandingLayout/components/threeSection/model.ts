@@ -13,7 +13,7 @@ export function loadGLTFModel(
       glbPath,
       (gltf) => {
         const obj = gltf.scene;
-        obj.name = "desktop";
+        obj.name = "threeItem";
         obj.position.y = 0;
         obj.position.x = 0;
         obj.scale.set(1.2, 1.2, 1.2);
