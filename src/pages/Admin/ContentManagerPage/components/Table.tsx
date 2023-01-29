@@ -1,7 +1,5 @@
 import moment from "moment";
 
-import "./Table.scss";
-
 const Table = ({ data, onClickRow }) => {
   return (
     <div className="table-wrapper">

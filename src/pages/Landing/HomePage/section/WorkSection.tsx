@@ -13,7 +13,14 @@ const WorkSection = () => {
         things and do things right. Hence, I can collaborate very well with
         teammates meanwhile working independently is one of my strong points.
       </p>
-      <ButtonCustom customClassName="mx-auto mt-4">Download CV</ButtonCustom>
+      <a
+        href={`${
+          import.meta.env.VITE_AWS_S3_URI
+        }/cv/Nguyen+Van+Ha+-+CV+-+Software+Engineer.pdf`}
+        download="NguyenVanHa-CV-SoftwareEngineer.pdf"
+      >
+        <ButtonCustom customClassName="mx-auto mt-4">Download CV</ButtonCustom>
+      </a>
     </section>
   );
 };

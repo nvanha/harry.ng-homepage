@@ -26,7 +26,7 @@ const Sidebar = () => {
               className={({ isActive }) =>
                 `flex items-center p-2 text-sm font-semibold text-colorSecondaryDark transition-all rounded-md hover:bg-[#181826] ${
                   isActive
-                    ? "bg-[#181826] !text-green-500"
+                    ? "bg-[#181826] !text-teal-500"
                     : "hover:text-colorPrimaryDark"
                 }`
               }
@@ -37,7 +37,7 @@ const Sidebar = () => {
         </ul>
       </div>
       <div className="py-4 px-3 border-t-[1px] border-[#32324d] flex items-center">
-        <div className="w-[26px] h-[26px] rounded-full bg-[#009b7c] mr-2 font-bold text-center">
+        <div className="w-[26px] h-[26px] rounded-full bg-teal-500 mr-2 font-bold text-center">
           H
         </div>
         <p className="text-sm flex-1 text-colorSecondaryDark font-medium">

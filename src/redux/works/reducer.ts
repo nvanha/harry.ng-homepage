@@ -6,6 +6,10 @@ const initialState = {
   isAddWorkRequest: false,
   isAddWorkSuccess: false,
   isAddWorkFailure: false,
+  addWorkRes: {},
+  isUpdateWorkRequest: false,
+  isUpdateWorkSuccess: false,
+  isUpdateWorkFailure: false,
   isGetListWorksRequest: false,
   isGetListWorksSuccess: false,
   isGetListWorksFailure: false,
@@ -17,9 +21,15 @@ const initialState = {
   isDeleteWorkRequest: false,
   isDeleteWorkSuccess: false,
   isDeleteWorkFailure: false,
-  isTestUploadImageRequest: false,
-  isTestUploadImageSuccess: false,
-  isTestUploadImageFailure: false,
+  deleteWorkRes: {},
+  isUploadImageWorkRequest: false,
+  isUploadImageWorkSuccess: false,
+  isUploadImageWorkFailure: false,
+  uploadImageWorkRes: {},
+  isDeleteImageWorkRequest: false,
+  isDeleteImageWorkSuccess: false,
+  isDeleteImageWorkFailure: false,
+  deleteImageWorkRes: {},
   errorMessages: [],
 };
 
@@ -32,17 +42,39 @@ const reducer = handleActions(
       isAddWorkSuccess: false,
       isAddWorkFailure: false,
     }),
-    [Actions.addWorkSuccess]: (state) => ({
+    [Actions.addWorkSuccess]: (state, { payload }) => ({
       ...state,
       isAddWorkRequest: false,
       isAddWorkSuccess: true,
       isAddWorkFailure: false,
+      addWorkRes: payload,
     }),
     [Actions.addWorkFailure]: (state, { payload }) => ({
       ...state,
       isAddWorkRequest: false,
       isAddWorkSuccess: false,
       isAddWorkFailure: true,
+      errorMessages: [payload],
+    }),
+    // #endregion
+    // #region : Update work
+    [Actions.updateWorkRequest]: (state) => ({
+      ...state,
+      isUpdateWorkRequest: true,
+      isUpdateWorkSuccess: false,
+      isUpdateWorkFailure: false,
+    }),
+    [Actions.updateWorkSuccess]: (state) => ({
+      ...state,
+      isUpdateWorkRequest: false,
+      isUpdateWorkSuccess: true,
+      isUpdateWorkFailure: false,
+    }),
+    [Actions.updateWorkFailure]: (state, { payload }) => ({
+      ...state,
+      isUpdateWorkRequest: false,
+      isUpdateWorkSuccess: false,
+      isUpdateWorkFailure: true,
       errorMessages: [payload],
     }),
     // #endregion
@@ -97,11 +129,12 @@ const reducer = handleActions(
       isDeleteWorkSuccess: false,
       isDeleteWorkFailure: false,
     }),
-    [Actions.deleteWorkSuccess]: (state) => ({
+    [Actions.deleteWorkSuccess]: (state, { payload }) => ({
       ...state,
       isDeleteWorkRequest: false,
       isDeleteWorkSuccess: true,
       isDeleteWorkFailure: false,
+      deleteWorkRes: payload,
     }),
     [Actions.deleteWorkFailure]: (state, { payload }) => ({
       ...state,
@@ -111,24 +144,47 @@ const reducer = handleActions(
       errorMessages: [payload],
     }),
     // #endregion
-    // #region : Test upload image
-    [Actions.testUploadImageRequest]: (state) => ({
+    // #region : Upload image work
+    [Actions.uploadImageWorkRequest]: (state) => ({
       ...state,
-      isTestUploadImageRequest: true,
-      isTestUploadImageSuccess: false,
-      isTestUploadImageFailure: false,
+      isUploadImageWorkRequest: true,
+      isUploadImageWorkSuccess: false,
+      isUploadImageWorkFailure: false,
     }),
-    [Actions.testUploadImageSuccess]: (state) => ({
+    [Actions.uploadImageWorkSuccess]: (state, { payload }) => ({
       ...state,
-      isTestUploadImageRequest: false,
-      isTestUploadImageSuccess: true,
-      isTestUploadImageFailure: false,
+      isUploadImageWorkRequest: false,
+      isUploadImageWorkSuccess: true,
+      isUploadImageWorkFailure: false,
+      uploadImageWorkRes: payload,
     }),
-    [Actions.testUploadImageFailure]: (state, { payload }) => ({
+    [Actions.uploadImageWorkFailure]: (state, { payload }) => ({
       ...state,
-      isTestUploadImageRequest: false,
-      isTestUploadImageSuccess: false,
-      isTestUploadImageFailure: true,
+      isUploadImageWorkRequest: false,
+      isUploadImageWorkSuccess: false,
+      isUploadImageWorkFailure: true,
+      errorMessages: [payload],
+    }),
+    // #endregion
+    // #region : Delete image work
+    [Actions.deleteImageWorkRequest]: (state) => ({
+      ...state,
+      isDeleteImageWorkRequest: true,
+      isDeleteImageWorkSuccess: false,
+      isDeleteImageWorkFailure: false,
+    }),
+    [Actions.deleteImageWorkSuccess]: (state, { payload }) => ({
+      ...state,
+      isDeleteImageWorkRequest: false,
+      isDeleteImageWorkSuccess: true,
+      isDeleteImageWorkFailure: false,
+      deleteImageWorkRes: payload,
+    }),
+    [Actions.deleteImageWorkFailure]: (state, { payload }) => ({
+      ...state,
+      isDeleteImageWorkRequest: false,
+      isDeleteImageWorkSuccess: false,
+      isDeleteImageWorkFailure: true,
       errorMessages: [payload],
     }),
     // #endregion

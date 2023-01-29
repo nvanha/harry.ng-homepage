@@ -4,6 +4,8 @@ import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 
+import "react-loading-skeleton/dist/skeleton.css";
+
 import App from "@/App";
 import config from "@/aws-exports";
 import { store } from "@/redux/storeConfig/store";

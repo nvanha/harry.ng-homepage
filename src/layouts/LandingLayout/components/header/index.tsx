@@ -51,6 +51,20 @@ const Header = () => {
               Works
             </NavLink>
           </li>
+          <li className="hidden sm:block">
+            <NavLink
+              to="/blogs"
+              className={({ isActive }) =>
+                `p-2 mr-2 font-medium hover:underline hover:underline-offset-4 ${
+                  isActive
+                    ? "bg-teal-400 text-black-700 rounded-md dark:bg-teal-200"
+                    : ""
+                }`
+              }
+            >
+              Blogs
+            </NavLink>
+          </li>
         </ul>
         <div className="flex items-center">
           <ButtonCustom

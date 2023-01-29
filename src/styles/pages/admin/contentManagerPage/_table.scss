@@ -1,16 +1,24 @@
 .table-wrapper {
-  overflow: hidden;
   border: 1px solid #32324d;
   border-radius: 4px;
   box-shadow: #03030533 1px 1px 10px;
+  max-height: calc(100vh - 24px - 40px - 40px - 24px - 40px - 40px);
+  overflow-y: scroll;
+  position: relative;
 
   table {
     width: 100%;
     background-color: #212134;
 
+    thead {
+      position: sticky;
+      top: 0;
+      left: 0;
+    }
+
     thead > tr {
       border-bottom: 1px solid #32324d;
-      background-color: #009b7c !important;
+      background-color: #319795 !important;
     }
 
     tbody > tr {

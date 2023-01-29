@@ -4,6 +4,10 @@ export const addWorkRequest = createAction("ADD_WORK_REQUEST");
 export const addWorkSuccess = createAction("ADD_WORK_SUCCESS");
 export const addWorkFailure = createAction("ADD_WORK_FAILURE");
 
+export const updateWorkRequest = createAction("UPDATE_WORK_REQUEST");
+export const updateWorkSuccess = createAction("UPDATE_WORK_SUCCESS");
+export const updateWorkFailure = createAction("UPDATE_WORK_FAILURE");
+
 export const getListWorksRequest = createAction("GET_LIST_WORKS_REQUEST");
 export const getListWorksSuccess = createAction("GET_LIST_WORKS_SUCCESS");
 export const getListWorksFailure = createAction("GET_LIST_WORKS_FAILURE");
@@ -16,8 +20,12 @@ export const deleteWorkRequest = createAction("DELETE_WORK_REQUEST");
 export const deleteWorkSuccess = createAction("DELETE_WORK_SUCCESS");
 export const deleteWorkFailure = createAction("DELETE_WORK_FAILURE");
 
-export const testUploadImageRequest = createAction("TEST_UPLOAD_IMAGE_REQUEST");
-export const testUploadImageSuccess = createAction("TEST_UPLOAD_IMAGE_SUCCESS");
-export const testUploadImageFailure = createAction("TEST_UPLOAD_IMAGE_FAILURE");
+export const uploadImageWorkRequest = createAction("UPLOAD_IMAGE_WORK_REQUEST");
+export const uploadImageWorkSuccess = createAction("UPLOAD_IMAGE_WORK_SUCCESS");
+export const uploadImageWorkFailure = createAction("UPLOAD_IMAGE_WORK_FAILURE");
+
+export const deleteImageWorkRequest = createAction("DELETE_IMAGE_WORK_REQUEST");
+export const deleteImageWorkSuccess = createAction("DELETE_IMAGE_WORK_SUCCESS");
+export const deleteImageWorkFailure = createAction("DELETE_IMAGE_WORK_FAILURE");
 
 export const resetWorksState = createAction("RESET_WORKS_STATE");

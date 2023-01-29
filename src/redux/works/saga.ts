@@ -6,7 +6,7 @@ import * as Actions from "./actions";
 function* addWork({ payload }) {
   try {
     const response = yield call(() =>
-      axiosMicroApiInstance.put("/works/add-work", JSON.stringify(payload))
+      axiosMicroApiInstance.post("/works/add-work", JSON.stringify(payload))
     );
     if (response?.status === 201) {
       yield put(Actions.addWorkSuccess(response.data));
@@ -15,6 +15,22 @@ function* addWork({ payload }) {
     if (error?.response?.data) {
       const messages = error.response.data;
       yield put(Actions.addWorkFailure(messages));
+    }
+  }
+}
+
+function* updateWork({ payload }) {
+  try {
+    const response = yield call(() =>
+      axiosMicroApiInstance.post("/works/update-work", JSON.stringify(payload))
+    );
+    if (response?.status === 200) {
+      yield put(Actions.updateWorkSuccess(response.data));
+    }
+  } catch (error: any) {
+    if (error?.response?.data) {
+      const messages = error.response.data;
+      yield put(Actions.updateWorkFailure(messages));
     }
   }
 }
@@ -38,7 +54,7 @@ function* getListWorks({ payload }) {
 function* getWorkDetails({ payload }) {
   try {
     const response = yield call(() =>
-      axiosMicroApiInstance.get(`/works/work/${payload}`)
+      axiosMicroApiInstance.get(`/works/work-detail/${payload}`)
     );
     if (response?.status === 200) {
       yield put(Actions.getWorkDetailsSuccess(response.data));
@@ -67,29 +83,47 @@ function* deleteWork({ payload }) {
   }
 }
 
-function* testUploadImage({ payload }) {
-  const formData = new FormData();
-  formData.append("file", payload.file);
-
+function* uploadImageWork({ payload }) {
   try {
     const response = yield call(() =>
-      axiosMicroApiInstance.post("/test-upload-image", formData)
+      axiosMicroApiInstance.post(
+        "/works/upload-image-work",
+        JSON.stringify(payload)
+      )
     );
-    if (response?.status === 200) {
-      yield put(Actions.testUploadImageSuccess(response.data));
+    if (response?.status === 201) {
+      yield put(Actions.uploadImageWorkSuccess(response.data));
     }
   } catch (error: any) {
     if (error?.response?.data) {
       const { detail } = error.response.data;
-      yield put(Actions.testUploadImageFailure(detail));
+      yield put(Actions.uploadImageWorkFailure(detail));
+    }
+  }
+}
+
+function* deleteImageWork({ payload }) {
+  try {
+    const response = yield call(() =>
+      axiosMicroApiInstance.delete(`/works/delete-image-work/${payload}`)
+    );
+    if (response?.status === 200) {
+      yield put(Actions.deleteImageWorkSuccess(response.data));
+    }
+  } catch (error: any) {
+    if (error?.response?.data) {
+      const messages = error.response.data;
+      yield put(Actions.deleteImageWorkFailure(messages));
     }
   }
 }
 
 export default function* () {
   yield takeLatest(Actions.addWorkRequest, addWork);
+  yield takeLatest(Actions.updateWorkRequest, updateWork);
   yield takeLatest(Actions.getListWorksRequest, getListWorks);
   yield takeLatest(Actions.getWorkDetailsRequest, getWorkDetails);
   yield takeLatest(Actions.deleteWorkRequest, deleteWork);
-  yield takeLatest(Actions.testUploadImageRequest, testUploadImage);
+  yield takeLatest(Actions.uploadImageWorkRequest, uploadImageWork);
+  yield takeLatest(Actions.deleteImageWorkRequest, deleteImageWork);
 }

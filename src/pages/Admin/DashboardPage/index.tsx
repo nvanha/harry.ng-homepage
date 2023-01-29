@@ -1,8 +1,8 @@
-import React from "react";
+import Helmet from "@/components/helmet";
 
 const DashboardPage = () => {
   return (
-    <div className="p-14 dashboard-page">
+    <Helmet title="Dashboard . CMS" customClassName="p-14 dashboard-page">
       <h2 className="text-4xl font-bold font-poppins">
         Welcome to Harry.ng CMS 👋
       </h2>
@@ -11,7 +11,7 @@ const DashboardPage = () => {
         latest news about Harry.ng. We are giving our best to improve the
         product based on your feedback.
       </p>
-    </div>
+    </Helmet>
   );
 };
 
