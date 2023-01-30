@@ -66,6 +66,11 @@ const ThreeItem = () => {
       camera.position.copy(initialCameraPosition);
       camera.lookAt(target);
 
+      const directioanlLight = new THREE.DirectionalLight(0xffffff, 1);
+      directioanlLight.position.set(1, 1, 0);
+      directioanlLight.castShadow = true;
+      scene.add(directioanlLight);
+
       const ambientLight = new THREE.AmbientLight(0xcccccc, 1);
       scene.add(ambientLight);
 
