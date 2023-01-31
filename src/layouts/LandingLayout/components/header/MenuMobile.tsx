@@ -2,29 +2,18 @@ import { Menu, MenuHandler, MenuList } from "@material-tailwind/react";
 import { IoMenu } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 
-import { ButtonCustom } from "@/components/forms";
-
 const MenuMobile = () => {
   return (
     <Menu>
       <MenuHandler>
-        <ButtonCustom
-          color="blue"
-          customClassName="w-10 h-10 p-0 ml-2 sm:hidden"
-        >
-          <IoMenu className="w-5 h-5" />
-        </ButtonCustom>
+        <div className="flex h-10 w-10 cursor-pointer items-center justify-center hover:opacity-70">
+          <IoMenu className="text-2xl sm:hidden" />
+        </div>
       </MenuHandler>
-      <MenuList className="text-black-700 bg-backgroundHeaderLight dark:bg-backgroundBodyDark dark:text-colorPrimaryDark">
+      <MenuList className="border-[1px] border-colorBorderDefaultLight bg-colorMainBgLight text-colorTextPrimaryLight shadow-shadowMediumLight dark:border-colorBorderDefaultDark dark:bg-colorMainBgDark dark:text-colorTextPrimaryDark dark:shadow-shadowMediumDark">
         <NavLink
           to="/works"
-          className={({ isActive }) =>
-            `px-3 py-2 block rounded-md transition-all hover:bg-backgroundDropdownItemActive ${
-              isActive
-                ? "bg-backgroundDropdownItemActive dark:text-black-700"
-                : ""
-            }`
-          }
+          className="block rounded-md border-0 px-3 py-2 outline-0 transition-all hover:bg-blue-800 hover:text-white dark:hover:bg-blue-700"
         >
           Works
         </NavLink>

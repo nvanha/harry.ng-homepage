@@ -14,7 +14,7 @@ const LandingLayout = ({ children }) => {
   return (
     <div id="landing-layout" className="landing-layout">
       <Header />
-      <main className="pt-14 px-4 max-w-3xl mx-auto">
+      <main className="mx-auto max-w-3xl px-4 pt-14">
         <ThreeSection />
         <div className="relative z-[2]">{children}</div>
       </main>

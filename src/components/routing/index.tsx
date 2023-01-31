@@ -18,7 +18,7 @@ const Routing = () => {
   return (
     <Suspense fallback={<Loading />}>
       <Routes>
-        {routesAuth.map((route) => {
+        {/* {routesAuth.map((route) => {
           const Page = route.element;
           const Layout: any = AuthLayout;
 
@@ -49,7 +49,7 @@ const Routing = () => {
               }
             />
           );
-        })}
+        })} */}
         {routesLanding.map((route) => {
           const Page = route.element;
           const Layout: any = LandingLayout;

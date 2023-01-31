@@ -5,9 +5,9 @@ html *::-webkit-scrollbar {
 body {
   text-rendering: optimizeSpeed;
 
-  @apply font-quicksand text-black-700 text-base font-normal bg-backgroundBodyLight dark:text-colorPrimaryDark dark:bg-backgroundBodyDark;
+  @apply bg-colorMainBgLight font-quicksand text-base font-normal text-colorTextPrimaryLight dark:bg-colorMainBgDark dark:text-colorTextPrimaryDark;
 }
 
 .error-msg {
-  @apply text-red-500 text-sm text-left;
+  @apply text-left text-sm text-red-500;
 }

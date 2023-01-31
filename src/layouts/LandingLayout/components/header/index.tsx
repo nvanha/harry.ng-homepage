@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { Tooltip } from "@material-tailwind/react";
+import { useRef, useState } from "react";
+import { BsSoundwave } from "react-icons/bs";
 import { IoMoon, IoSunnyOutline } from "react-icons/io5";
 import { Link, NavLink } from "react-router-dom";
 
 import LogoURL from "@/assets/logo/logo-full.png";
-import { ButtonCustom } from "@/components/forms";
 import MenuMobile from "./MenuMobile";
 
 const Header = () => {
   const [theme, setTheme] = useState("light");
+  const [isMusicPlay, setIsMusicPlay] = useState(false);
+
+  const audioRef: any = useRef();
 
   const handleChangeTheme = () => {
     const currentTheme = localStorage.getItem("theme");
@@ -23,28 +27,63 @@ const Header = () => {
     }
   };
 
+  const handlePlayMusic = () => {
+    if (isMusicPlay) {
+      audioRef.current.pause();
+      setIsMusicPlay(false);
+    } else {
+      audioRef.current.play();
+      setIsMusicPlay(true);
+    }
+  };
+
   return (
-    <header className="fixed top-0 left-0 w-screen bg-backgroundHeaderLight bg-opacity-25 backdrop-blur-md z-50 dark:bg-backgroundHeaderDark">
-      <div className="max-w-3xl mx-auto p-2 flex items-center justify-between">
+    <header className="fixed top-0 left-0 z-50 w-screen bg-colorHeaderBgLight bg-opacity-25 text-colorHeaderTextLight backdrop-blur-md dark:bg-colorHeaderBgDark dark:bg-opacity-25 dark:text-colorHeaderTextDark">
+      <div className="mx-auto flex max-w-3xl items-center justify-between p-2">
         <ul className="flex items-center">
           <li className="group">
-            <Link to="/" className="flex items-center gap-2 mr-5 font-bold">
+            <Link to="/" className="mr-5 flex items-center gap-2 font-bold">
               <img
                 src={LogoURL}
                 alt=""
-                className="block h-10 transition-transform -rotate-[30deg] group-hover:rotate-0"
+                className="block h-10 -rotate-[30deg] transition-transform group-hover:rotate-0"
               />
               harry.ng
             </Link>
           </li>
+          <Tooltip
+            content={isMusicPlay ? "Turn off" : "Turn on"}
+            className="text-sm font-semibold"
+            animate={{
+              mount: { scale: 1, y: 0 },
+              unmount: { scale: 0, y: -25 },
+            }}
+          >
+            <li
+              className={`mr-2 flex h-10 w-10 cursor-pointer items-center justify-center ${
+                !isMusicPlay ? "opacity-50" : ""
+              }`}
+              onClick={handlePlayMusic}
+            >
+              <BsSoundwave
+                className={`text-2xl ${isMusicPlay ? "animate-pulse" : ""}`}
+              />
+              <audio controls loop ref={audioRef} className="hidden">
+                <source
+                  src={`${
+                    import.meta.env.VITE_AWS_S3_URI
+                  }/music/Magical-Piano-Version.mp3`}
+                  type="audio/mpeg"
+                />
+              </audio>
+            </li>
+          </Tooltip>
           <li className="hidden sm:block">
             <NavLink
               to="/works"
               className={({ isActive }) =>
-                `p-2 mr-2 font-medium hover:underline hover:underline-offset-4 ${
-                  isActive
-                    ? "bg-teal-400 text-black-700 rounded-md dark:bg-teal-200"
-                    : ""
+                `mr-2 p-2 font-medium hover:underline hover:underline-offset-4 ${
+                  isActive ? "underline underline-offset-4" : ""
                 }`
               }
             >
@@ -55,10 +94,8 @@ const Header = () => {
             <NavLink
               to="/blogs"
               className={({ isActive }) =>
-                `p-2 mr-2 font-medium hover:underline hover:underline-offset-4 ${
-                  isActive
-                    ? "bg-teal-400 text-black-700 rounded-md dark:bg-teal-200"
-                    : ""
+                `mr-2 p-2 font-medium hover:underline hover:underline-offset-4 ${
+                  isActive ? "underline underline-offset-4" : ""
                 }`
               }
             >
@@ -67,12 +104,16 @@ const Header = () => {
           </li>
         </ul>
         <div className="flex items-center">
-          <ButtonCustom
-            customClassName="w-10 h-10 p-0 bg-purple-500 dark:bg-orange-200 dark:text-black-700 hover:opacity-70"
+          <div
+            className="flex h-10 w-10 cursor-pointer items-center justify-center hover:opacity-70"
             onClick={handleChangeTheme}
           >
-            {theme === "light" ? <IoMoon /> : <IoSunnyOutline />}
-          </ButtonCustom>
+            {theme === "light" ? (
+              <IoMoon className="text-lg" />
+            ) : (
+              <IoSunnyOutline className="text-lg" />
+            )}
+          </div>
           <MenuMobile />
         </div>
       </div>
