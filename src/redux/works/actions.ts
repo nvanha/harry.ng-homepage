@@ -29,3 +29,6 @@ export const deleteImageWorkSuccess = createAction("DELETE_IMAGE_WORK_SUCCESS");
 export const deleteImageWorkFailure = createAction("DELETE_IMAGE_WORK_FAILURE");
 
 export const resetWorksState = createAction("RESET_WORKS_STATE");
+export const resetGetWorkDetailsState = createAction(
+  "RESET_GET_WORK_DETAILS_STATE"
+);

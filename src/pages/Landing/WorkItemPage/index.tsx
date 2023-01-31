@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { IoChevronForward, IoOpenOutline } from "react-icons/io5";
-import { Link, useNavigate, useParams } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import Helmet from "@/components/helmet";
-import { useDispatch, useSelector } from "react-redux";
-import { getWorkDetailsRequest } from "@/redux/works/actions";
+import {
+  getWorkDetailsRequest,
+  resetGetWorkDetailsState,
+} from "@/redux/works/actions";
 
 interface IProps {
   data: {
@@ -25,12 +28,8 @@ interface IProps {
 }
 
 const WorkItemPage = () => {
-  const {
-    isGetWorkDetailsRequest,
-    isGetWorkDetailsSuccess,
-    isGetListWorksFailure,
-    workDetailsState,
-  } = useSelector((store: any) => store.works);
+  const { isGetWorkDetailsRequest, isGetWorkDetailsSuccess, workDetailsState } =
+    useSelector((store: any) => store.works);
   const dispatch = useDispatch();
 
   const { workId } = useParams();
@@ -49,48 +48,49 @@ const WorkItemPage = () => {
   }, [isGetWorkDetailsSuccess]);
 
   useEffect(() => {
-    if (isGetListWorksFailure) {
+    if (workDetailsState === "") {
+      dispatch(resetGetWorkDetailsState());
       navigate("/works");
     }
-  }, [isGetListWorksFailure]);
+  }, [workDetailsState]);
 
   return (
     <Helmet title={data?.titleThumb} customClassName="work-item-page">
       <section className="section-wrapper bio-section mb-6">
-        <div className="flex items-center flex-wrap mb-4">
+        <div className="mb-4 flex flex-wrap items-center">
           <Link
             to="./../"
-            className="text-blue-600 font-semibold hover:underline hover:underline-offset-2 dark:text-pink-400"
+            className="font-semibold text-blue-600 hover:underline hover:underline-offset-2 dark:text-pink-400"
           >
             Works
           </Link>{" "}
           <IoChevronForward className="mx-2 w-4" />
           {isGetWorkDetailsRequest ? (
-            <Skeleton count={1} className="w-[200px] h-[24px]" />
+            <Skeleton count={1} className="h-[24px] w-[200px]" />
           ) : (
-            <p className="text-xl font-semibold">{data?.titleFull}</p>
+            <p className="text-xl font-bold">{data?.titleFull}</p>
           )}
         </div>
         {isGetWorkDetailsRequest ? (
           <div className="pl-4">
-            <Skeleton count={1} className="w-full h-[24px]" />
-            <Skeleton count={1} className="w-1/2 h-[24px]" />
-            <Skeleton count={1} className="w-2/3 h-[24px]" />
+            <Skeleton count={1} className="h-[24px] w-full" />
+            <Skeleton count={1} className="h-[24px] w-1/2" />
+            <Skeleton count={1} className="h-[24px] w-2/3" />
           </div>
         ) : (
-          <pre className="whitespace-pre-wrap font-quicksand ml-4">
+          <pre className="ml-4 whitespace-pre-wrap font-quicksand">
             {data?.content}
           </pre>
         )}
         <ul className="my-4 ml-4">
           {data?.linkWebsite && (
-            <li className="flex items-center flex-wrap mb-1">
-              <span className="bg-green-100 text-green-700 text-xs uppercase px-1 mr-2 rounded-sm font-bold dark:text-green-200 dark:bg-[#9ae6b429]">
+            <li className="mb-1 flex flex-wrap items-center">
+              <span className="mr-2 rounded-sm bg-green-100 px-1 text-xs font-bold uppercase text-green-700 dark:bg-[#9ae6b429] dark:text-green-200">
                 website
               </span>{" "}
               {isGetWorkDetailsRequest ? (
                 <div className="flex-1">
-                  <Skeleton count={1} className="w-[200px] h-[20px]" />
+                  <Skeleton count={1} className="h-[20px] w-[200px]" />
                 </div>
               ) : (
                 <a
@@ -105,13 +105,13 @@ const WorkItemPage = () => {
             </li>
           )}
           {data?.linkRepo && (
-            <li className="flex items-center flex-wrap mb-1">
-              <span className="bg-green-100 text-green-700 text-xs uppercase px-1 mr-2 rounded-sm font-bold dark:text-green-200 dark:bg-[#9ae6b429]">
+            <li className="mb-1 flex flex-wrap items-center">
+              <span className="mr-2 rounded-sm bg-green-100 px-1 text-xs font-bold uppercase text-green-700 dark:bg-[#9ae6b429] dark:text-green-200">
                 source
               </span>{" "}
               {isGetWorkDetailsRequest ? (
                 <div className="flex-1">
-                  <Skeleton count={1} className="w-[200px] h-[20px]" />
+                  <Skeleton count={1} className="h-[20px] w-[200px]" />
                 </div>
               ) : (
                 <a
@@ -125,25 +125,25 @@ const WorkItemPage = () => {
               )}
             </li>
           )}
-          <li className="flex items-center flex-wrap mb-1">
-            <span className="bg-green-100 text-green-700 text-xs uppercase px-1 mr-2 rounded-sm font-bold dark:text-green-200 dark:bg-[#9ae6b429]">
+          <li className="mb-1 flex flex-wrap items-center">
+            <span className="mr-2 rounded-sm bg-green-100 px-1 text-xs font-bold uppercase text-green-700 dark:bg-[#9ae6b429] dark:text-green-200">
               stack
             </span>{" "}
             {isGetWorkDetailsRequest ? (
               <div className="flex-1">
-                <Skeleton count={1} className="w-[100px] h-[20px]" />
+                <Skeleton count={1} className="h-[20px] w-[100px]" />
               </div>
             ) : (
               data?.stack?.join(", ")
             )}
           </li>
-          <li className="flex items-center flex-wrap">
-            <span className="bg-green-100 text-green-700 text-xs uppercase px-1 mr-2 rounded-sm font-bold dark:text-green-200 dark:bg-[#9ae6b429]">
+          <li className="flex flex-wrap items-center">
+            <span className="mr-2 rounded-sm bg-green-100 px-1 text-xs font-bold uppercase text-green-700 dark:bg-[#9ae6b429] dark:text-green-200">
               category
             </span>{" "}
             {isGetWorkDetailsRequest ? (
               <div className="flex-1">
-                <Skeleton count={1} className="w-[100px] h-[20px]" />
+                <Skeleton count={1} className="h-[20px] w-[100px]" />
               </div>
             ) : (
               data?.category?.join(", ")
@@ -151,14 +151,14 @@ const WorkItemPage = () => {
           </li>
         </ul>
         {isGetWorkDetailsRequest ? (
-          <Skeleton count={1} className="w-full h-[300px] sm:h-[400px]" />
+          <Skeleton count={1} className="h-[300px] w-full sm:h-[400px]" />
         ) : (
           data?.image?.map((item) => (
             <img
               key={item.Key}
               src={item.Location}
               alt=""
-              className="w-full rounded-md shadow-md mb-4"
+              className="mb-4 w-full rounded-md shadow-md"
             />
           ))
         )}

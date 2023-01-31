@@ -190,6 +190,13 @@ const reducer = handleActions(
     // #endregion
     // #region : Local
     [Actions.resetWorksState]: () => initialState,
+    [Actions.resetGetWorkDetailsState]: (state) => ({
+      ...state,
+      isGetWorkDetailsRequest: false,
+      isGetWorkDetailsSuccess: false,
+      isGetWorkDetailsFailure: false,
+      workDetailsState: {},
+    }),
     // #endregion
   },
   initialState
