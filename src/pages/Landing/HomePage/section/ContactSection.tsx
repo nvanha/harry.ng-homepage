@@ -1,11 +1,11 @@
-import SpanGG from "@/components/spangg";
-import React from "react";
 import {
-  IoLogoGithub,
-  IoLogoLinkedin,
   IoLogoFacebook,
+  IoLogoGithub,
   IoLogoInstagram,
+  IoLogoLinkedin,
 } from "react-icons/io5";
+
+import SpanGG from "@/components/spangg";
 
 const ContactSection = () => {
   return (

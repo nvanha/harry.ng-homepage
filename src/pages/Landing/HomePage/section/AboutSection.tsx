@@ -3,8 +3,8 @@ import SpanGG from "@/components/spangg";
 
 const AboutSection = () => {
   return (
-    <section className="mb-24 section-wrapper about-section">
-      <div className="p-3 bg-white bg-opacity-25 backdrop-blur-sm text-center rounded-lg mb-6 shadow-md dark:bg-opacity-10">
+    <section className="section-wrapper about-section mb-24">
+      <div className="mb-6 rounded-lg bg-white bg-opacity-70 p-3 text-center shadow-shadowLargeLight backdrop-blur-sm dark:bg-opacity-10 dark:shadow-shadowLargeDark">
         Hello, I'm a software engineer based in Vietnam!
       </div>
       <div>
@@ -26,16 +26,15 @@ const AboutSection = () => {
         <div className="mb-3 flex">
           <SpanGG color="red" customClassName="!w-[140px]" />
           <SpanGG customClassName="!w-[84px]" />
-          <SpanGG rounded customClassName="!w-[14px]" />
           <SpanGG color="red" customClassName="!w-[224px]" />
         </div>
       </div>
-      <div className="w-full mt-7 flex flex-wrap md:flex-nowrap">
-        <div className="w-full md:flex-1 md:w-auto">
-          <h1 className="text-4xl font-bold font-poppins">
+      <div className="mt-7 flex w-full flex-wrap md:flex-nowrap">
+        <div className="w-full md:w-auto md:flex-1">
+          <h1 className="font-poppins text-4xl font-bold">
             Ha (Harry) Nguyen Van
           </h1>
-          <p className="font-medium mt-2">
+          <p className="mt-2 font-medium">
             Software Engineer. Frontend Developer.
           </p>
         </div>
@@ -43,7 +42,7 @@ const AboutSection = () => {
           <img
             src={AvtURL}
             alt=""
-            className="w-[100px] h-[100px] border-2 border-white object-cover object-center rounded-full"
+            className="h-[100px] w-[100px] rounded-full border-2 border-colorBorderDefaultLight object-cover object-center dark:border-colorBorderDefaultDark"
           />
         </div>
       </div>
