@@ -21,6 +21,7 @@ module.exports = withMT({
       colorBorderDefaultLight: "#d0d7de",
       colorTextPrimaryLight: "#24292f",
       colorTextSecondaryLight: "#57606a",
+      colorBoxContentBgLight: "#ffffff",
       // Dark mode
       colorHeaderBgDark: "#2d333b",
       colorHeaderTextDark: "#cdd9e5",
@@ -28,6 +29,7 @@ module.exports = withMT({
       colorBorderDefaultDark: "#444c56",
       colorTextPrimaryDark: "#adbac7",
       colorTextSecondaryDark: "#768390",
+      colorBoxContentBgDark: "#22272e",
     },
     boxShadow: {
       // Light mode

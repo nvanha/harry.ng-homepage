@@ -1,16 +1,15 @@
-import { Card, CardBody, CardHeader } from "@material-tailwind/react";
 import Skeleton from "react-loading-skeleton";
 
 const WorkItemLoading = () => {
   return (
-    <Card className="mb-6 bg-white dark:bg-[#525252]">
-      <CardHeader floated={false}>
+    <div className="mb-6 overflow-hidden rounded-lg border-[1px] border-colorBorderDefaultLight bg-colorBoxContentBgLight p-4 shadow-shadowMediumLight dark:border-colorBorderDefaultDark dark:bg-colorBoxContentBgDark dark:shadow-shadowMediumDark">
+      <div>
         <Skeleton count={1} className="h-[22vh]" />
-      </CardHeader>
-      <CardBody>
-        <Skeleton count={1} className="h-[28px] w-full mt-2" />
-      </CardBody>
-    </Card>
+      </div>
+      <div>
+        <Skeleton count={1} className="mt-2 h-[28px] w-full" />
+      </div>
+    </div>
   );
 };
 
