@@ -1,15 +1,24 @@
-import React from "react";
+import { Link } from "react-router-dom";
+
+import Helmet from "@/components/helmet";
 
 const NotFoundPage = () => {
   return (
-    <div className="home-page">
+    <Helmet title="Not found">
       <section className="section-wrapper about-section">
-        <h1 className="text-4xl font-semibold">Not found</h1>
-        <p>The page you're looking for was not found.</p>
-        <hr className="my-6" />
-        <button className="btn mx-auto">Return to home</button>
+        <h1 className="mb-1 text-4xl font-bold">Not found</h1>
+        <p className="text-colorTextSecondaryLight dark:text-colorTextSecondaryDark">
+          The page you're looking for was not found.
+        </p>
+        <hr className="my-6 border-colorBorderDefaultLight dark:border-colorBorderDefaultDark" />
+        <Link
+          to="/"
+          className="font-normal text-teal-600 hover:underline hover:decoration-2 hover:underline-offset-4 dark:text-teal-200 dark:hover:decoration-pink-400"
+        >
+          Return to home
+        </Link>
       </section>
-    </div>
+    </Helmet>
   );
 };
 
