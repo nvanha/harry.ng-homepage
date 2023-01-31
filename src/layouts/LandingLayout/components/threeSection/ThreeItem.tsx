@@ -3,7 +3,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 import { loadGLTFModel } from "./model";
-import { ThreeItemSpinner, ThreeItemContainer } from "./ThreeItemLoader";
+import { ThreeItemContainer, ThreeItemSpinner } from "./ThreeItemLoader";
 
 function easeOutCirc(x) {
   return Math.sqrt(1 - Math.pow(x - 1, 4));

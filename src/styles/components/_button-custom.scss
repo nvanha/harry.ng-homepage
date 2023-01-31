@@ -1,5 +1,5 @@
 .btn-custom {
-  @apply rounded-md transition-all flex items-center justify-center text-white dark:text-black-700;
+  @apply flex items-center justify-center rounded-md text-white transition-all dark:text-colorTextPrimaryLight;
 
   &__color {
     &--green {
@@ -41,21 +41,21 @@
 
   &__size {
     &--l {
-      @apply py-4 px-9 font-semibold gap-3;
+      @apply gap-3 py-4 px-9 font-semibold;
     }
 
     &--m {
-      @apply py-3 px-6 font-semibold text-sm gap-3;
+      @apply gap-3 py-3 px-6 text-sm font-semibold;
     }
 
     &--s {
-      @apply py-2 px-4 font-semibold text-xs gap-2;
+      @apply gap-2 py-2 px-4 text-xs font-semibold;
     }
   }
 
   &__variant {
     &--disabled {
-      @apply text-[#6f6f6d] bg-[#dddddd] cursor-no-drop;
+      @apply cursor-no-drop bg-[#dddddd] text-[#6f6f6d];
     }
   }
 }

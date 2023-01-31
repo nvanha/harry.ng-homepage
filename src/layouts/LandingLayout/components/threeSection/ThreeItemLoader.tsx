@@ -9,8 +9,8 @@ import { updateLikes, updateViews } from "@/graphql/mutations";
 import hooks from "@/hooks";
 
 const ThreeItemSpinner = () => (
-  <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-    <CgSpinner className="animate-spin w-10 h-10" />
+  <div className="absolute top-0 left-0 flex h-full w-full items-center justify-center">
+    <CgSpinner className="h-10 w-10 animate-spin" />
   </div>
 );
 
@@ -79,7 +79,7 @@ const SectionAction = () => {
   }, [resDataViewed]);
 
   return (
-    <div className="absolute top-20 left-0 w-full flex items-center justify-between">
+    <div className="absolute top-20 left-0 flex w-full items-center justify-between">
       <ButtonCustom
         customClassName={`${
           currentLikeAction === "liked" ? "bg-red-300" : "bg-red-200"
@@ -92,7 +92,7 @@ const SectionAction = () => {
           }`}
         />{" "}
         {isLoadingLiked ? (
-          <CgSpinner className="animate-spin w-4 h-4" />
+          <CgSpinner className="h-4 w-4 animate-spin" />
         ) : (
           parseInt(resDataLiked)
         )}
@@ -100,7 +100,7 @@ const SectionAction = () => {
       <ButtonCustom customClassName="bg-blue-200">
         <HiEye className="fill-blue-500" />{" "}
         {isLoadingViewed ? (
-          <CgSpinner className="animate-spin w-4 h-4" />
+          <CgSpinner className="h-4 w-4 animate-spin" />
         ) : (
           parseInt(resDataViewed)
         )}
@@ -113,7 +113,7 @@ const ThreeItemContainer = ({ customRef, children }) => {
   return (
     <section
       ref={customRef}
-      className="w-full h-[calc(100vw-32px)] mx-auto -mt-7 -mb-10 bg-none relative z-[1] sm:w-[480px] sm:h-[480px] sm:-mt-14 sm:-mb-36 md:w-[640px] md:h-[640px] md:-mb-44"
+      className="relative z-[1] mx-auto -mt-7 -mb-10 h-[calc(100vw-32px)] w-full bg-none sm:-mt-14 sm:-mb-36 sm:h-[480px] sm:w-[480px] md:-mb-44 md:h-[640px] md:w-[640px]"
     >
       {children}
       <SectionAction />
