@@ -9,7 +9,7 @@ const BioSection = () => {
       </h3>
       {/* width + 18.07 */}
       <p className="mb-1 sm:pl-[172.32px] sm:-indent-[172.32px]">
-        <span className="mr-4 font-bold">Jan 2023 to present</span>Worked at{" "}
+        <span className="mr-4 font-bold">Feb 2023 to present</span>Worked at{" "}
         <a
           href="https://mekotrading.vn/"
           target="_blank"

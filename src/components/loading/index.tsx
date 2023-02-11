@@ -1,10 +1,11 @@
 import React from "react";
 
-import LogoURL from "@/assets/logo/logo-full.png";
+import LoadingGif from "@/assets/loading.gif";
 
 const Loading = () => {
   return (
-    <div className="fixed top-0 left-0 w-screen h-screen z-50 flex flex-col items-center justify-center gap-2 loading">
+    <div className="loading fixed top-0 left-0 z-[100] flex h-screen w-screen flex-col items-center justify-center gap-2 bg-colorMainBgLight text-colorTextPrimaryLight dark:bg-colorMainBgDark dark:text-colorTextPrimaryDark">
+      <img src={LoadingGif} alt="loading..." />
       Loading...
     </div>
   );
