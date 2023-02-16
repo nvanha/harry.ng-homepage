@@ -1,3 +1,4 @@
+import axios from "axios";
 import { call, put, takeLatest } from "redux-saga/effects";
 
 import { axiosMicroApiInstance } from "@/services";
@@ -121,7 +122,10 @@ function* deleteImageWork({ payload }) {
 function* commentWork({ payload }) {
   try {
     const response = yield call(() =>
-      axiosMicroApiInstance.post("/works/comment-work", JSON.stringify(payload))
+      axios.post(
+        `${import.meta.env.VITE_DEV_MICRO_APP}/works/comment-work`,
+        JSON.stringify(payload)
+      )
     );
     if (response?.status === 200) {
       yield put(Actions.commentWorkSuccess(response.data));

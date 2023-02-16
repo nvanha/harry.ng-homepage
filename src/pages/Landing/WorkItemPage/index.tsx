@@ -221,7 +221,7 @@ const WorkItemPage = () => {
                 >
                   {item.content}
                   <span className="mt-2 block text-sm text-colorTextSecondaryLight">
-                    {moment(item.created_at).format("DD/MM/YYYY")}
+                    {moment(item.created_at).format("MMMM Do YYYY, h:mm:ss a")}
                   </span>
                 </p>
               ))}
