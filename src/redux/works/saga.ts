@@ -118,6 +118,22 @@ function* deleteImageWork({ payload }) {
   }
 }
 
+function* commentWork({ payload }) {
+  try {
+    const response = yield call(() =>
+      axiosMicroApiInstance.post("/works/comment-work", JSON.stringify(payload))
+    );
+    if (response?.status === 200) {
+      yield put(Actions.commentWorkSuccess(response.data));
+    }
+  } catch (error: any) {
+    if (error?.response?.data) {
+      const { detail } = error.response.data;
+      yield put(Actions.commentWorkFailure(detail));
+    }
+  }
+}
+
 export default function* () {
   yield takeLatest(Actions.addWorkRequest, addWork);
   yield takeLatest(Actions.updateWorkRequest, updateWork);
@@ -126,4 +142,5 @@ export default function* () {
   yield takeLatest(Actions.deleteWorkRequest, deleteWork);
   yield takeLatest(Actions.uploadImageWorkRequest, uploadImageWork);
   yield takeLatest(Actions.deleteImageWorkRequest, deleteImageWork);
+  yield takeLatest(Actions.commentWorkRequest, commentWork);
 }

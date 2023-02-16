@@ -30,6 +30,9 @@ const initialState = {
   isDeleteImageWorkSuccess: false,
   isDeleteImageWorkFailure: false,
   deleteImageWorkRes: {},
+  isCommentWorkRequest: false,
+  isCommentWorkSuccess: false,
+  isCommentWorkFailure: false,
   errorMessages: [],
 };
 
@@ -185,6 +188,28 @@ const reducer = handleActions(
       isDeleteImageWorkRequest: false,
       isDeleteImageWorkSuccess: false,
       isDeleteImageWorkFailure: true,
+      errorMessages: [payload],
+    }),
+    // #endregion
+    // #region : Comment work
+    [Actions.commentWorkRequest]: (state) => ({
+      ...state,
+      isCommentWorkRequest: true,
+      isCommentWorkSuccess: false,
+      isCommentWorkFailure: false,
+    }),
+    [Actions.commentWorkSuccess]: (state, { payload }) => ({
+      ...state,
+      isCommentWorkRequest: false,
+      isCommentWorkSuccess: true,
+      isCommentWorkFailure: false,
+      deleteImageWorkRes: payload,
+    }),
+    [Actions.commentWorkFailure]: (state, { payload }) => ({
+      ...state,
+      isCommentWorkRequest: false,
+      isCommentWorkSuccess: false,
+      isCommentWorkFailure: true,
       errorMessages: [payload],
     }),
     // #endregion

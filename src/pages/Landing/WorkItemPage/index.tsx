@@ -6,9 +6,13 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 import Helmet from "@/components/helmet";
 import {
+  commentWorkRequest,
   getWorkDetailsRequest,
   resetGetWorkDetailsState,
 } from "@/redux/works/actions";
+import { ButtonCustom } from "@/components/forms";
+import { Input } from "@material-tailwind/react";
+import moment from "moment";
 
 interface IProps {
   data: {
@@ -24,6 +28,12 @@ interface IProps {
     content: string;
     linkWebsite: string;
     linkRepo: string;
+    commentsList:
+      | {
+          content: string;
+          created_at: string;
+        }[]
+      | undefined;
   };
 }
 
@@ -36,6 +46,13 @@ const WorkItemPage = () => {
   const navigate = useNavigate();
 
   const [data, setData] = useState<IProps["data"]>();
+  const [commentInput, setCommentInput] = useState("");
+  const [commentsList, setCommentsList] = useState<
+    {
+      content: string;
+      created_at: string;
+    }[]
+  >([]);
 
   useEffect(() => {
     dispatch(getWorkDetailsRequest(workId));
@@ -44,6 +61,9 @@ const WorkItemPage = () => {
   useEffect(() => {
     if (isGetWorkDetailsSuccess) {
       setData(workDetailsState);
+      if (workDetailsState?.commentsList) {
+        setCommentsList(workDetailsState?.commentsList);
+      }
     }
   }, [isGetWorkDetailsSuccess]);
 
@@ -53,6 +73,25 @@ const WorkItemPage = () => {
       navigate("/works");
     }
   }, [workDetailsState]);
+
+  const handleComment = () => {
+    if (commentInput.trim().length > 0) {
+      dispatch(
+        commentWorkRequest({
+          id: data?.id,
+          content: commentInput.trim(),
+        })
+      );
+      setCommentsList([
+        {
+          content: commentInput,
+          created_at: new Date().toISOString(),
+        },
+        ...commentsList,
+      ]);
+      setCommentInput("");
+    }
+  };
 
   return (
     <Helmet title={data?.titleThumb} customClassName="work-item-page">
@@ -162,6 +201,33 @@ const WorkItemPage = () => {
             />
           ))
         )}
+        <div className="comment-section mt-10 border-t-2 border-colorBorderDefaultLight pt-5 pb-20 dark:border-colorBorderDefaultDark">
+          <h2 className="mb-5 text-xl font-bold">Comments</h2>
+          <div className="flex items-center gap-3">
+            <Input
+              variant="standard"
+              label="Write comments"
+              value={commentInput}
+              onChange={(e) => setCommentInput(e.target.value)}
+            />
+            <ButtonCustom onClick={handleComment}>Submit</ButtonCustom>
+          </div>
+          {commentsList.length > 0 && (
+            <div className="mt-5 flex flex-col gap-5">
+              {commentsList.map((item, index) => (
+                <p
+                  key={index}
+                  className="w-100 rounded-md border-[1px] border-colorBorderDefaultLight p-5 shadow-shadowMediumLight dark:border-colorBorderDefaultDark dark:shadow-shadowMediumDark"
+                >
+                  {item.content}
+                  <span className="mt-2 block text-sm text-colorTextSecondaryLight">
+                    {moment(item.created_at).format("DD/MM/YYYY")}
+                  </span>
+                </p>
+              ))}
+            </div>
+          )}
+        </div>
       </section>
     </Helmet>
   );
