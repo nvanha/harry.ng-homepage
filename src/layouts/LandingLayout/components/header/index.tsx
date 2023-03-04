@@ -38,17 +38,17 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 z-50 w-screen bg-colorHeaderBgLight bg-opacity-25 text-colorHeaderTextLight backdrop-blur-md dark:bg-colorHeaderBgDark dark:bg-opacity-25 dark:text-colorHeaderTextDark">
+    <header className="grain-bg fixed top-0 left-0 z-50 w-screen bg-colorHeaderBgLight bg-opacity-25 text-colorHeaderTextLight backdrop-blur-md dark:bg-colorHeaderBgDark dark:bg-opacity-25 dark:text-colorHeaderTextDark">
       <div className="mx-auto flex max-w-3xl items-center justify-between p-2">
         <ul className="flex items-center">
           <li className="group">
-            <Link to="/" className="mr-5 flex items-center gap-2 font-bold">
+            <Link to="/" className="mr-5 flex items-center font-bold">
               <img
                 src={LogoURL}
                 alt=""
-                className="block h-10 -rotate-[30deg] transition-transform group-hover:rotate-0"
+                className="mr-2 block h-10 -rotate-[30deg] transition-transform group-hover:rotate-0"
               />
-              harry.ng
+              harry.<span className="font-bold text-[#00987a]">_</span>
             </Link>
           </li>
           <Tooltip
@@ -82,24 +82,30 @@ const Header = () => {
             <NavLink
               to="/works"
               className={({ isActive }) =>
-                `mr-2 p-2 font-medium hover:underline hover:underline-offset-4 ${
+                `relative mr-2 p-2 font-medium hover:underline hover:underline-offset-4 ${
                   isActive ? "underline underline-offset-4" : ""
                 }`
               }
             >
-              Works
+              // Works{" "}
+              <span className="absolute -top-[6px] right-0 text-[10px]">
+                01
+              </span>
             </NavLink>
           </li>
           <li className="hidden sm:block">
             <NavLink
               to="/blogs"
               className={({ isActive }) =>
-                `mr-2 p-2 font-medium hover:underline hover:underline-offset-4 ${
+                `relative mr-2 p-2 font-medium hover:underline hover:underline-offset-4 ${
                   isActive ? "underline underline-offset-4" : ""
                 }`
               }
             >
-              Blogs
+              // Blogs{" "}
+              <span className="absolute -top-[6px] right-0 text-[10px]">
+                02
+              </span>
             </NavLink>
           </li>
         </ul>

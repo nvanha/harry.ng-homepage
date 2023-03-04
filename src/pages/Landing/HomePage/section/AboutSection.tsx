@@ -1,5 +1,6 @@
 import AvtURL from "@/assets/avt.jpg";
 import SpanGG from "@/components/spangg";
+import BG from "@/assets/background/hello-world-html-code-768x384.png";
 
 const AboutSection = () => {
   return (
@@ -45,6 +46,14 @@ const AboutSection = () => {
             className="h-[100px] w-[100px] rounded-full border-2 border-colorBorderDefaultLight object-cover object-center dark:border-colorBorderDefaultDark"
           />
         </div>
+      </div>
+      <div className="relative -mt-5 py-[20px] pl-[35px] before:absolute before:top-0 before:left-0 before:font-roboto before:text-sm before:font-semibold before:text-colorTextSecondaryLight before:opacity-80 before:content-['<code>'] after:absolute after:bottom-0 after:left-0 after:font-roboto after:text-sm after:font-semibold after:text-colorTextSecondaryLight after:opacity-80 after:content-['</code>'] dark:before:text-colorTextSecondaryDark dark:after:text-colorTextSecondaryDark">
+        <img
+          src={BG}
+          alt=""
+          className="mx-auto block h-auto max-w-full opacity-40"
+        />
+        <span className="absolute left-[17px] top-1/2 h-[80%] w-[1px] -translate-y-1/2 bg-colorTextSecondaryLight opacity-30 dark:bg-colorTextSecondaryDark" />
       </div>
     </section>
   );

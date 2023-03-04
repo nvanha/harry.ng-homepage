@@ -117,7 +117,7 @@ const WorkItemPage = () => {
             <Skeleton count={1} className="h-[24px] w-2/3" />
           </div>
         ) : (
-          <pre className="ml-4 whitespace-pre-wrap font-quicksand">
+          <pre className="ml-4 whitespace-pre-wrap font-roboto">
             {data?.content}
           </pre>
         )}

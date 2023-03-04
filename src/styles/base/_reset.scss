@@ -5,9 +5,13 @@ html *::-webkit-scrollbar {
 body {
   text-rendering: optimizeSpeed;
 
-  @apply bg-colorMainBgLight font-quicksand text-base font-normal text-colorTextPrimaryLight dark:bg-colorMainBgDark dark:text-colorTextPrimaryDark;
+  @apply bg-colorMainBgLight bg-grain-light bg-grain-size font-roboto text-base font-normal text-colorTextPrimaryLight dark:bg-colorMainBgDark dark:bg-grain-dark dark:text-colorTextPrimaryDark;
 }
 
 .error-msg {
   @apply text-left text-sm text-red-500;
+}
+
+.grain-bg {
+  @apply bg-grain-light bg-grain-size dark:bg-grain-dark;
 }

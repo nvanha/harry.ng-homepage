@@ -11,25 +11,33 @@ module.exports = withMT({
         poppins: ['"Poppins"', "sans-serif"],
         quicksand: ['"Quicksand"', "sans-serif"],
         sans: ['"Quicksand"', "sans-serif"],
+        roboto: ['"Roboto Mono"', "sans-serif"],
+      },
+      backgroundImage: {
+        "grain-light": "url('/src/assets/background/bg-grain.png')",
+        "grain-dark": "url('/src/assets/background/bg-grain-dark.png')",
+      },
+      backgroundSize: {
+        "grain-size": "350px auto",
       },
     },
     colors: {
       // Light mode
       colorHeaderBgLight: "#24292f",
       colorHeaderTextLight: "#ffffff",
-      colorMainBgLight: "#f6f8fa",
-      colorBorderDefaultLight: "#d0d7de",
-      colorTextPrimaryLight: "#24292f",
+      colorMainBgLight: "#ebecf0", //
+      colorBorderDefaultLight: "#8495b9", //
+      colorTextPrimaryLight: "#14303f", //
       colorTextSecondaryLight: "#57606a",
-      colorBoxContentBgLight: "#ffffff",
+      colorBoxContentBgLight: "#ebecf0", //
       // Dark mode
       colorHeaderBgDark: "#2d333b",
       colorHeaderTextDark: "#cdd9e5",
-      colorMainBgDark: "#1c2127",
-      colorBorderDefaultDark: "#444c56",
-      colorTextPrimaryDark: "#adbac7",
+      colorMainBgDark: "#14303f", //
+      colorBorderDefaultDark: "#5d73a3", //
+      colorTextPrimaryDark: "#ffb39b", //
       colorTextSecondaryDark: "#768390",
-      colorBoxContentBgDark: "#22272e",
+      colorBoxContentBgDark: "#14303f", //
     },
     boxShadow: {
       // Light mode
