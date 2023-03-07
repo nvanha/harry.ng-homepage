@@ -3,6 +3,7 @@ import {
   IoLogoGithub,
   IoLogoInstagram,
   IoLogoLinkedin,
+  IoLogoCodepen,
 } from "react-icons/io5";
 
 import SpanGG from "@/components/spangg";
@@ -20,6 +21,13 @@ const ContactSection = () => {
         className="contact-item"
       >
         <IoLogoGithub className="mr-2" /> @nvanha
+      </a>
+      <a
+        href="https://codepen.io/nvanha"
+        target="_blank"
+        className="contact-item"
+      >
+        <IoLogoCodepen className="mr-2" /> @nvanha
       </a>
       <a
         href="https://www.linkedin.com/in/hanguyen1120/"

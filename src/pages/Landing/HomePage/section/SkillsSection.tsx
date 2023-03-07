@@ -11,13 +11,13 @@ const SkillsSection = () => {
         <span className="mr-4 font-bold">Soft skills:</span>
         Team-work, critical-thinking, communication, collaboration.
       </p>
-      <p className="mb-1">
+      <p className="mb-1 sm:pl-[calc(211.23px+16px)] sm:-indent-[calc(211.23px+16px)]">
         <span className="mr-4 font-bold">Programming languages:</span>
-        JavaScript, TypeScript.
+        JavaScript, TypeScript, PHP (WordPress).
       </p>
       <p className="mb-1">
         <span className="mr-4 font-bold">Library & Framework:</span>
-        ReactJS, ExpressJS.
+        ReactJS, ExpressJS, WordPress.
       </p>
       <p className="mb-1 sm:pl-[calc(57.61px+16px)] sm:-indent-[calc(57.61px+16px)]">
         <span className="mr-4 font-bold">Cloud:</span>
@@ -28,14 +28,15 @@ const SkillsSection = () => {
         <span className="mr-4 font-bold">Databases:</span>
         SQL, NoSQL (DynamoDB).
       </p>
-      <p className="mb-1">
+      <p className="mb-1 sm:pl-[calc(172.83px+16px)] sm:-indent-[calc(172.83px+16px)]">
         <span className="mr-4 font-bold">Additional skills:</span>
-        Redux, Docker, GraphQL, Git.
+        Redux, Docker, GraphQL, Git, Create custom Template & Plugin in
+        WordPress.
       </p>
       <p className="sm:pl-[calc(134.42px+16px)] sm:-indent-[calc(134.42px+16px)]">
         <span className="mr-4 font-bold">IDEAs & Tools:</span>
         Visual Studio Code, nvim, Postman, Bitbucket, Github, Jira, Confluence,
-        Figma, Trello.
+        Figma, Trello, Asana.
       </p>
     </section>
   );
