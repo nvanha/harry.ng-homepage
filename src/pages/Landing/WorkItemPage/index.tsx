@@ -156,7 +156,7 @@ const WorkItemPage = () => {
                 <a
                   href={data?.linkRepo}
                   target="_blank"
-                  className="break-all text-blue-600 hover:underline hover:underline-offset-2 dark:text-pink-400"
+                  className="break-all font-semibold text-blue-600 hover:underline hover:underline-offset-2 dark:text-pink-400"
                 >
                   {data?.linkRepo}
                   <IoOpenOutline className="ml-2 inline" />

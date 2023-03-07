@@ -30,7 +30,7 @@ const AboutSection = () => {
           <SpanGG color="red" customClassName="!w-[224px]" />
         </div>
       </div>
-      <div className="mt-7 flex w-full flex-wrap md:flex-nowrap">
+      <div className="relative z-[2] mt-7 flex w-full flex-wrap md:flex-nowrap">
         <div className="w-full md:w-auto md:flex-1">
           <h1 className="font-poppins text-4xl font-bold">
             Ha (Harry) Nguyen Van
@@ -47,11 +47,11 @@ const AboutSection = () => {
           />
         </div>
       </div>
-      <div className="relative -mt-5 py-[20px] pl-[35px] before:absolute before:top-0 before:left-0 before:font-roboto before:text-sm before:font-semibold before:text-colorTextSecondaryLight before:opacity-80 before:content-['<code>'] after:absolute after:bottom-0 after:left-0 after:font-roboto after:text-sm after:font-semibold after:text-colorTextSecondaryLight after:opacity-80 after:content-['</code>'] dark:before:text-colorTextSecondaryDark dark:after:text-colorTextSecondaryDark">
+      <div className="relative z-[1] -mt-5 py-[20px] pl-[35px] before:absolute before:top-0 before:left-0 before:font-roboto before:text-sm before:font-semibold before:text-colorTextSecondaryLight before:opacity-80 before:content-['<code>'] after:absolute after:bottom-0 after:left-0 after:font-roboto after:text-sm after:font-semibold after:text-colorTextSecondaryLight after:opacity-80 after:content-['</code>'] dark:before:text-colorTextSecondaryDark dark:after:text-colorTextSecondaryDark">
         <img
           src={BG}
           alt=""
-          className="mx-auto block h-auto max-w-full opacity-40"
+          className="mx-auto block h-auto max-w-full rounded-sm bg-[#000000b3] opacity-40 dark:bg-transparent"
         />
         <span className="absolute left-[17px] top-1/2 h-[80%] w-[1px] -translate-y-1/2 bg-colorTextSecondaryLight opacity-30 dark:bg-colorTextSecondaryDark" />
       </div>
