@@ -17,7 +17,7 @@ const LandingLayout = ({ children }) => {
     if (currentTheme === "dark") {
       document.documentElement.classList.add("dark");
     }
-  }, []);
+  }, [localStorage.getItem("theme")]);
 
   return (
     <div id="landing-layout" className="landing-layout">
