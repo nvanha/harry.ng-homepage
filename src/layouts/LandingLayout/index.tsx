@@ -5,10 +5,6 @@ import { Footer, Header, ThreeSection } from "./components";
 const LandingLayout = ({ children }) => {
   useEffect(() => {
     const currentTheme = localStorage.getItem("theme");
-  }, []);
-
-  useEffect(() => {
-    const currentTheme = localStorage.getItem("theme");
 
     if (!currentTheme) {
       localStorage.setItem("theme", "dark");
@@ -17,7 +13,7 @@ const LandingLayout = ({ children }) => {
     if (currentTheme === "dark") {
       document.documentElement.classList.add("dark");
     }
-  }, [localStorage.getItem("theme")]);
+  }, []);
 
   return (
     <div id="landing-layout" className="landing-layout">
