@@ -8,6 +8,7 @@ const LandingLayout = ({ children }) => {
 
     if (!currentTheme) {
       localStorage.setItem("theme", "dark");
+      document.documentElement.classList.add("dark");
     }
 
     if (currentTheme === "dark") {
