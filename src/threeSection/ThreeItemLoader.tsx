@@ -10,7 +10,7 @@ const ThreeItemContainer = ({ customRef, children }) => {
   return (
     <section
       ref={customRef}
-      className="relative z-[1] mx-auto -mt-7 -mb-10 h-[calc(100vw-32px)] w-full bg-none sm:-mt-14 sm:-mb-36 sm:h-[480px] sm:w-[480px] md:-mb-44 md:h-[640px] md:w-[640px]"
+      className="relative mx-auto h-[calc(100vw-32px)] w-full bg-none sm:h-[480px] sm:w-[480px] md:h-[640px] md:w-[640px]"
     >
       {children}
     </section>
