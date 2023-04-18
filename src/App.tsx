@@ -1,9 +1,9 @@
-import Routing from "./components/routing";
+import ThreeSection from "./threeSection";
 
 function App() {
   return (
     <div className="App">
-      <Routing />
+      <ThreeSection />
     </div>
   );
 }
